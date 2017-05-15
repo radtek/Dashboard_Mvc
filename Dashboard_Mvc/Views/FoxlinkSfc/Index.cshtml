@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <br />
+            <div id="titleDiv"> </div>
+            <div id="loginDiv">
+                @if (Request.IsAuthenticated && User.IsInRole("Excalibur"))
+                {
+                    <div id="ExcaliburDiv" class="show" style="float: left; width: 100%"></div>
+                }
+                else
+                {
+                    <div id="ExcaliburDiv" class="hidden" style="float: left; width: 100%"></div>
+                }
+                @if (Request.IsAuthenticated && User.IsInRole("A/S"))
+                {
+                    <div id="AandSDiv" class="show" style="float: left; width: 100%"></div>
+                }
+                else
+                {
+                    <div id="AandSDiv" class="hidden" style="float: left; width: 100%"></div>
+                }
+                @if (Request.IsAuthenticated && User.IsInRole("H/M"))
+                {
+                    <div id="HandMDiv" class="show" style="float: left; width: 100%"></div>
+                }
+                else
+                {
+                    <div id="HandMDiv" class="hidden" style="float: left; width: 100%"></div>
+                }
+                @if (Request.IsAuthenticated && User.IsInRole("Taurus"))
+                {
+                    <div id="TaurusDiv" class="show" style="float: left; width: 100%"></div>
+                }
+                else
+                {
+                    <div id="TaurusDiv" class="hidden" style="float: left; width: 100%"></div>
+                }
+                            
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/highCharts")
+@Scripts.Render("~/bundles/CommonScript")
+@Scripts.Render("~/bundles/FoxlinkSfcIndex")

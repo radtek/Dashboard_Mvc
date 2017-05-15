@@ -1,0 +1,97 @@
+﻿
+@{
+    ViewBag.Title = "SolidGaugeOee";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <br />
+            <div>
+                <div id="SolidGaugeOeeTitle"> </div>
+                @if (Request.IsAuthenticated && User.IsInRole("A/S"))
+                {
+                    <div id="AandSDayOee" class="col-sm-12 col-md-12">
+                        <div id="AandSSolidOee" class="gauge col-sm-6 col-md-6 show"></div>
+                        <div id="AandSSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                else
+                {
+                    <div id="AandSDayOee" class="col-sm-12 col-md-12 hidden">
+                        <div id="AandSSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="AandSSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                @if (Request.IsAuthenticated && User.IsInRole("Excalibur"))
+                {
+                    <div id="ExcaliburDayOee" class="col-sm-12 col-md-12 show">
+                        <div id="ExcaliburSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="ExcaliburSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                else
+                {
+                    <div id="ExcaliburDayOee" class="col-sm-12 col-md-12 hidden">
+                        <div id="ExcaliburSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="ExcaliburSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                
+                @if (Request.IsAuthenticated && User.IsInRole("B9"))
+                {
+                    <div id="B9DayOee" class="col-sm-12 col-md-12 show">
+                        <div id="B9SolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="B9SolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                else
+                {
+                    <div id="B9DayOee" class="col-sm-12 col-md-12 hidden">
+                        <div id="B9SolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="B9SolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                @if (Request.IsAuthenticated && User.IsInRole("H/M"))
+                {
+                    <div id="HandMDayOee" class="col-sm-12 col-md-12 show">
+                        <div id="HandMSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="HandMSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                else
+                {
+                    <div id="HandMDayOee" class="col-sm-12 col-md-12 hidden">
+                        <div id="HandMSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="HandMSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                @if (Request.IsAuthenticated && User.IsInRole("Crete"))
+                {
+                    <div id="CreteDayOee" class="col-sm-12 col-md-12 show">
+                        <div id="CreteSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="CreteSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                else
+                {
+                    <div id="CreteDayOee" class="col-sm-12 col-md-12 hidden">
+                        <div id="CreteSolidOee" class="gauge col-sm-6 col-md-6"></div>
+                        <div id="CreteSolidOeeExclude" class="gauge col-sm-6 col-md-6"></div>
+                    </div>
+                }
+                                
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/highCharts")
+@Scripts.Render("~/bundles/CommonScript")
+@Scripts.Render("~/bundles/ReportDataMethod")
+@Scripts.Render("~/bundles/SolidGaugeOee")

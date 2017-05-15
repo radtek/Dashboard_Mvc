@@ -1,0 +1,106 @@
+﻿@{
+    ViewBag.Title = "正崴生產資訊中心";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <br />
+        <br />
+        <br />
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="col-sm-5 col-md-5 col-lg-5">
+                <button type="button" id="RefreshModelType" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    機種類型<span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                    @if (Request.IsAuthenticated && User.IsInRole("Excalibur"))
+                    {
+                        <li><a href="#" id="EXCALIBUR" class="selectModelType">Excalibur</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" id="EXCALIBUR" class="selectModelType" style="display:none">Excalibur</a></li>
+                    }
+                   
+                    @if (Request.IsAuthenticated && User.IsInRole("B9"))
+                    {
+                        <li><a href="#" id="B9" class="selectModelType">B9</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" id="B9" class="selectModelType" style="display:none">B9</a></li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("A/S"))
+                    {
+                        <li><a href="#" id="AS" class="selectModelType">A/S&C/P</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" id="AS" class="selectModelType" style="display:none">A/S&C/P</a></li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("H/M"))
+                    {
+                        <li><a href="#" id="HM" class="selectModelType">H/M</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" id="HM" class="selectModelType" style="display:none">H/M</a></li>
+                    }
+                    @if (Request.IsAuthenticated && User.IsInRole("Taurus"))
+                    {
+                        <li><a href="#" id="TAURUS" class="selectModelType">Taurus(LK)</a></li>
+                        <li><a href="#" id="TAURUS(KS)" class="selectModelType">Taurus(KS)</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="#" id="TAURUS" class="selectModelType" style="display:none">Taurus(LK)</a></li>
+                        <li><a href="#" id="TAURUS(KS)" class="selectModelType" style="display:none">Taurus(KS)</a></li>
+                    }             
+                </ul>
+            </div>
+            <div class="col-sm-7 col-md-7 col-lg-7">
+                <div id="modelReportTitle"></div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+
+        <div class="col-sm-12 col-md-12 col-lg-12">
+            <div class="row ChartRow" style="margin:10px">
+                <div id="testYieldRate" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div id="testCapacity" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div id="SMTYieldRate" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+            </div>
+            <div class="row ChartRow" style="margin:10px">
+                <div id="SMTCapacity" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div id="testUPH" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div id="SMTUPH" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+            </div>
+            <div class="row ChartRow" style="margin:10px">
+                <div id="shipment" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div id="onLineNum" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+                <div id="smtUptimeInvalid" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+            </div>
+            <div class="row ChartRow" style="margin:10px">
+                <div id="smtUptime" class="col-sm-4 col-md-4 col-lg-4">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/highCharts")
+@Scripts.Render("~/bundles/CommonScript")
+@Scripts.Render("~/bundles/ModelRealTimeByYear")

@@ -1,0 +1,2233 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="A_EMPLOYEE_DESC">
+          <Key>
+            <PropertyRef Name="EMPNO" />
+          </Key>
+          <Property Name="EMPNO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="PWD" Type="varchar2" MaxLength="10" />
+          <Property Name="DEPT" Type="number" Precision="10" Scale="0" />
+          <Property Name="C_NAME" Type="varchar2" MaxLength="20" />
+          <Property Name="IN_TIME" Type="date" />
+          <Property Name="OUT_TIME" Type="date" />
+          <Property Name="STATE" Type="number" Precision="1" Scale="0" />
+          <Property Name="EN_NAME" Type="varchar2" MaxLength="23" />
+          <Property Name="EMP_ISADMIN" Type="varchar2" MaxLength="1" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="A_PACKING_TABLE">
+          <Key>
+            <PropertyRef Name="PACKING_HEHAO" />
+          </Key>
+          <Property Name="PACKING_HEHAO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="PACKING_XIANGHAO" Type="varchar2" MaxLength="20" />
+          <Property Name="PACKING_ZHANBAN" Type="varchar2" MaxLength="20" />
+          <Property Name="ZHUANGHENUM" Type="varchar2" MaxLength="8" />
+          <Property Name="MUBIAONUM" Type="varchar2" MaxLength="8" />
+          <Property Name="CHANGER_DATE" Type="date" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.A_PRIVILEGE_DESC”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="A_PRIVILEGE_DESC">
+          <Key>
+            <PropertyRef Name="EMPNO" />
+          </Key>
+          <Property Name="EMPNO" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="A_S" Type="number" Precision="1" Scale="0" />
+          <Property Name="H_M" Type="number" Precision="1" Scale="0" />
+          <Property Name="TAURUS" Type="number" Precision="1" Scale="0" />
+          <Property Name="EXCA" Type="number" Precision="1" Scale="0" />
+          <Property Name="B9" Type="number" Precision="1" Scale="0" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="20" />
+          <Property Name="AUSTIN" Type="number" Precision="1" Scale="0" />
+          <Property Name="CRETE" Type="number" Precision="1" Scale="0" />
+        </EntityType>
+        <EntityType Name="BG_MODEL_LINK">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="BG_CODE" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="FACTORY_CODE" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="MODEL_NO" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PART_NO" Type="varchar2" MaxLength="60" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="LINK_ENABLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FL_DASHBOARD_REPORT_TYPE">
+          <Key>
+            <PropertyRef Name="REPORT_ID" />
+          </Key>
+          <Property Name="REPORT_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="REPORT_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="REPORT_TYPE" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="DTTM" Type="date" />
+          <Property Name="REPORT_ENABLE" Type="number" Precision="10" Scale="2" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.FL_PDLINE_PASS_QTY_HISTORY”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FL_PDLINE_PASS_QTY_HISTORY">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="CURRENT_TIME" />
+            <PropertyRef Name="PASS_QTY" />
+            <PropertyRef Name="IDLE_TIME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="CURRENT_TIME" Type="date" Nullable="false" />
+          <Property Name="PASS_QTY" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IDLE_TIME" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="50" />
+          <Property Name="CURRENT_HOUR" Type="number" Precision="10" Scale="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.FL_PDLINE_PASS_QTY_TEST”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FL_PDLINE_PASS_QTY_TEST">
+          <Key>
+            <PropertyRef Name="MODEL_NAME" />
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="PASS_QTY" />
+            <PropertyRef Name="IDLE_TIME" />
+            <PropertyRef Name="CURRENT_HOUR" />
+          </Key>
+          <Property Name="CURRENT_TIME" Type="date" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PDLINE_ID" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PASS_QTY" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IDLE_TIME" Type="number" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CURRENT_HOUR" Type="number" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.FL_SHIPPING_INFOS”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FL_SHIPPING_INFOS">
+          <Key>
+            <PropertyRef Name="DATE_ID" />
+            <PropertyRef Name="MODEL_NO" />
+          </Key>
+          <Property Name="DATE_ID" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="MODEL_NO" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="ERP_DATE" Type="varchar2" MaxLength="30" />
+          <Property Name="SFC_COMP_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="ERP_COMP_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="ERP_SHIP_QTY" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="FOXLINK_OEE">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="DTTM" />
+            <PropertyRef Name="MODEL_NAME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="IDLE_MINUTE" Type="number" Precision="10" Scale="2" />
+          <Property Name="DTTM" Type="date" Nullable="false" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="number" Precision="10" Scale="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.FOXLINK_OEE_20160819_BAK”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FOXLINK_OEE_20160819_BAK">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="MODEL_NAME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="IDLE_MINUTE" Type="number" Precision="10" Scale="2" />
+          <Property Name="DTTM" Type="date" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="number" Precision="10" Scale="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.FOXLINK_OEE_BACKUP”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="FOXLINK_OEE_BACKUP">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="MODEL_NAME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="IDLE_MINUTE" Type="number" Precision="10" Scale="2" />
+          <Property Name="DTTM" Type="date" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="number" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="JOB_EXECUTE_LOG">
+          <Key>
+            <PropertyRef Name="LOG_UUID" />
+          </Key>
+          <Property Name="PROCEDURE_NAME" Type="varchar2" MaxLength="60" />
+          <Property Name="EXECUTE_BEGIN_TIME" Type="date" />
+          <Property Name="EXECUTE_STATUS" Type="varchar2" MaxLength="20" />
+          <Property Name="EXECUTE_STATUS_DETAILS" Type="varchar2" MaxLength="300" />
+          <Property Name="EXECUTE_END_TIME" Type="date" />
+          <Property Name="LOG_UUID" Type="varchar2" MaxLength="53" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL_RPT_LINK">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="RPT_GROUP_ID" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="RPT_GROUP_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="MODEL_RPT_LINK_ENABLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PACK_SECTION_TOTAL_CAPACITY">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="WORK_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="LINE_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="WORK_DATE" Type="date" Nullable="false" />
+          <Property Name="PACKING_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FIRT_PASS_RATE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IS_TOTAL_CAPACITY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="PACK_SECTION_TOTAL_PRODUCTION">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="WORK_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="LINE_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="WORK_DATE" Type="date" Nullable="false" />
+          <Property Name="PACKING_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.RC_RESOURCES_ALL”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="RC_RESOURCES_ALL">
+          <Key>
+            <PropertyRef Name="RC_RESOURCE_ID" />
+            <PropertyRef Name="RESOURCE_NAME" />
+            <PropertyRef Name="RESOURCE_CATEGORY" />
+            <PropertyRef Name="UOM_CODE" />
+            <PropertyRef Name="ORGANIZATION_ID" />
+            <PropertyRef Name="CREATED_BY" />
+            <PropertyRef Name="CREATION_DATE" />
+            <PropertyRef Name="LAST_UPDATED_BY" />
+            <PropertyRef Name="LAST_UPDATE_DATE" />
+          </Key>
+          <Property Name="RC_RESOURCE_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="RESOURCE_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="RESOURCE_CATEGORY" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="480" />
+          <Property Name="UOM_CODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="BRAND" Type="varchar2" MaxLength="480" />
+          <Property Name="MODEL" Type="varchar2" MaxLength="480" />
+          <Property Name="BOM_DEPARTMENT_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="BOM_RESOURCE_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ORGANIZATION_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="date" />
+          <Property Name="EFFECTIVE_END_DATE" Type="date" />
+          <Property Name="CREATED_BY" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+          <Property Name="LAST_UPDATE_LOGIN" Type="number" Precision="15" Scale="0" />
+          <Property Name="ATTRIBUTE_CATEGORY" Type="varchar2" MaxLength="60" />
+          <Property Name="ATTRIBUTE1" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE2" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE3" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE4" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE5" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE6" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE7" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE8" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE9" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE10" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE11" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE12" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE13" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE14" Type="varchar2" MaxLength="300" />
+          <Property Name="ATTRIBUTE15" Type="varchar2" MaxLength="300" />
+          <Property Name="PROD_LINE_CODE" Type="varchar2" MaxLength="60" />
+          <Property Name="ASSET_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="SPC_DESCRIPTION" Type="varchar2" MaxLength="480" />
+          <Property Name="SOURCE_TYPE" Type="varchar2" MaxLength="6" />
+          <Property Name="ASSIGN_TO_USER_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="INVENTORY_ITEM_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ORIGINAL_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="ONHAND_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="RESOURCE_COST" Type="number" Precision="38" Scale="0" />
+          <Property Name="DATE_IN_SERVICE" Type="date" />
+          <Property Name="MATERIAL_TYPE" Type="varchar2" MaxLength="60" />
+          <Property Name="CAVE_NO" Type="varchar2" MaxLength="200" />
+          <Property Name="NOTE1" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE2" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE3" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE4" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE5" Type="varchar2" MaxLength="600" />
+          <Property Name="ORI_LOCATION_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="LOT_CONTROL" Type="varchar2" MaxLength="6" />
+          <Property Name="EMP_CLASS_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="QA_PLAN_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="MAINTAIN_JUDGE_TYPE" Type="varchar2" MaxLength="2" />
+          <Property Name="MAINTAIN_INTERVAL" Type="number" Precision="38" Scale="0" />
+          <Property Name="LIFESPAN" Type="number" Precision="38" Scale="0" />
+          <Property Name="EXTEND_LIFESPAN" Type="number" Precision="38" Scale="0" />
+          <Property Name="CURRENCY_CODE" Type="varchar2" MaxLength="20" />
+          <Property Name="PROD_COUNTRY" Type="varchar2" MaxLength="60" />
+          <Property Name="PROD_FAMILY" Type="varchar2" MaxLength="120" />
+          <Property Name="SAFETY_STOCK" Type="number" Precision="38" Scale="0" />
+          <Property Name="COST_TYPE" Type="varchar2" MaxLength="20" />
+          <Property Name="MAINTAIN_PLAN_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="NOTE6" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE7" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE8" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE9" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE10" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE11" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE12" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE13" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE14" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE15" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE16" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE17" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE18" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE19" Type="varchar2" MaxLength="600" />
+          <Property Name="NOTE20" Type="varchar2" MaxLength="600" />
+          <Property Name="APPLY_MANDATORY_FLAG" Type="varchar2" MaxLength="20" />
+          <Property Name="MOLD_NUMBER" Type="varchar2" MaxLength="60" />
+          <Property Name="HARDNESS" Type="varchar2" MaxLength="60" />
+          <Property Name="EXTENSION" Type="varchar2" MaxLength="60" />
+          <Property Name="ENG_USER_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="DESIGNER_USER_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="ASSEMBLY_ITEM_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="CUSTOMER_NAME" Type="varchar2" MaxLength="200" />
+          <Property Name="CHARGE_SOURCE" Type="varchar2" MaxLength="60" />
+          <Property Name="STANDARD_MFG_RATE" Type="varchar2" MaxLength="60" />
+          <Property Name="CATEGORY1" Type="varchar2" MaxLength="60" />
+          <Property Name="CATEGORY2" Type="varchar2" MaxLength="60" />
+          <Property Name="CATEGORY3" Type="varchar2" MaxLength="60" />
+          <Property Name="CATEGORY4" Type="varchar2" MaxLength="60" />
+          <Property Name="CATEGORY5" Type="varchar2" MaxLength="60" />
+          <Property Name="HOLD_FLAG" Type="varchar2" MaxLength="2" />
+          <Property Name="HOLD_REASON" Type="varchar2" MaxLength="400" />
+          <Property Name="PRIMARY_MTL_ITEM_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="MOLD_QTY_PER_ASSEMBLY" Type="number" Precision="38" Scale="0" />
+          <Property Name="MOLD_REAL_QTY_PER_ASSEMBLY" Type="number" Precision="38" Scale="0" />
+          <Property Name="MOLD_GOOD_CAVE" Type="number" Precision="38" Scale="0" />
+          <Property Name="QUOTATION_CONTROL" Type="varchar2" MaxLength="2" />
+          <Property Name="EQUIP_CATEGORY" Type="varchar2" MaxLength="60" />
+          <Property Name="EQUIP_ONLINE_FLAG" Type="varchar2" MaxLength="2" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.RC_WORKING_HOURS”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="RC_WORKING_HOURS">
+          <Key>
+            <PropertyRef Name="WH_HEADER_ID" />
+            <PropertyRef Name="RC_NO" />
+            <PropertyRef Name="PROD_QTY" />
+            <PropertyRef Name="DEPARTMENT_NAME" />
+            <PropertyRef Name="OPERATION_NUM" />
+            <PropertyRef Name="BOM_RESOURCE_CODE" />
+            <PropertyRef Name="WIP_ENTITY_NAME" />
+            <PropertyRef Name="JOB_TYPE_MEANING" />
+            <PropertyRef Name="STATUS_TYPE_DISP" />
+            <PropertyRef Name="START_QUANTITY" />
+            <PropertyRef Name="QUANTITY_COMPLETED" />
+            <PropertyRef Name="RC_HEADER_ID" />
+            <PropertyRef Name="RC_LINE_ID" />
+            <PropertyRef Name="WIP_ENTITY_ID" />
+            <PropertyRef Name="RESOURCE_ID" />
+            <PropertyRef Name="CREATION_DATE" />
+            <PropertyRef Name="LAST_UPDATE_DATE" />
+            <PropertyRef Name="ORGANIZATION_ID" />
+          </Key>
+          <Property Name="WH_HEADER_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="ORG_CODE" Type="varchar2" MaxLength="4000" />
+          <Property Name="PROD_DATE" Type="date" />
+          <Property Name="RC_NO" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="RC_STATUS" Type="varchar2" MaxLength="18" />
+          <Property Name="PROD_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DEPARTMENT_CODE" Type="varchar2" MaxLength="300" />
+          <Property Name="DEPARTMENT_NAME" Type="varchar2" MaxLength="200" Nullable="false" />
+          <Property Name="PROD_LINE_CODE" Type="varchar2" MaxLength="120" />
+          <Property Name="SHIFT_NAME" Type="varchar2" MaxLength="480" />
+          <Property Name="OPERATION_NUM" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="BOM_RESOURCE_CODE" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="RESOURCE_TYPE" Type="varchar2" MaxLength="300" />
+          <Property Name="BOM_RESOURCE_NAME" Type="varchar2" MaxLength="480" />
+          <Property Name="PROD_TIME" Type="number" Precision="38" Scale="0" />
+          <Property Name="SCHEDULE_HOURS" Type="number" Precision="38" Scale="0" />
+          <Property Name="ATTEND_HOURS" Type="number" Precision="38" Scale="0" />
+          <Property Name="LOSS_HOURS" Type="number" Precision="38" Scale="0" />
+          <Property Name="RC_GOOD_MOVE_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="RC_NG_MOVE_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="WH_DESC" Type="varchar2" MaxLength="480" />
+          <Property Name="WIP_ENTITY_NAME" Type="varchar2" MaxLength="480" Nullable="false" />
+          <Property Name="JOB_TYPE_MEANING" Type="varchar2" MaxLength="160" Nullable="false" />
+          <Property Name="STATUS_TYPE_DISP" Type="varchar2" MaxLength="160" Nullable="false" />
+          <Property Name="DATE_RELEASED" Type="date" />
+          <Property Name="DATE_CLOSED" Type="date" />
+          <Property Name="PRIMARY_ITEM" Type="varchar2" MaxLength="244" />
+          <Property Name="PRIMARY_ITEM_DESC" Type="varchar2" MaxLength="480" />
+          <Property Name="PRIMARY_UOM_CODE" Type="varchar2" MaxLength="6" />
+          <Property Name="PRIMARY_ITEM_PROJECT_CODE" Type="varchar2" MaxLength="80" />
+          <Property Name="START_QUANTITY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="QUANTITY_COMPLETED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="JOB_GOOD_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="JOB_NG_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="JOB_UNKNOW_QTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="COMPLETION_SUBINVENTORY" Type="varchar2" MaxLength="20" />
+          <Property Name="RESOURCE_NAME" Type="varchar2" MaxLength="200" />
+          <Property Name="DAILY_REPORT_STATUS" Type="varchar2" MaxLength="24" />
+          <Property Name="STD_USAGE_RATE" Type="number" Precision="38" Scale="0" />
+          <Property Name="RC_HEADER_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="RC_LINE_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="RC_RESOURCE_ID" Type="number" Precision="15" Scale="0" />
+          <Property Name="WIP_ENTITY_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+          <Property Name="RESOURCE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATION_DATE" Type="date" Nullable="false" />
+          <Property Name="LAST_UPDATE_DATE" Type="date" Nullable="false" />
+          <Property Name="ORGANIZATION_ID" Type="number" Precision="15" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORT_GROUPS">
+          <Key>
+            <PropertyRef Name="RPT_GROUP_ID" />
+          </Key>
+          <Property Name="RPT_GROUP_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="RPT_GROUP_NAME" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="RPT_GROUP_ENABLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORT_ITEMS">
+          <Key>
+            <PropertyRef Name="RPT_GROUP_ID" />
+            <PropertyRef Name="RPT_ITEM_ID" />
+          </Key>
+          <Property Name="RPT_GROUP_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="RPT_ITEM_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="RPT_ITEM_NAME" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="RPT_ITEM_ENABLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="WEB_SERVICE_URL" Type="varchar2" MaxLength="200" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SHIPPING_INFOS">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="WOR_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="WOR_DATE" Type="date" Nullable="false" />
+          <Property Name="MODEL_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COMP_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SHIP_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SMT_AVG_OEE_INFOS">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="WORK_DATE" />
+            <PropertyRef Name="IS_EXCLUDE" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="WORK_DATE" Type="date" Nullable="false" />
+          <Property Name="IS_EXCLUDE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+          <Property Name="UPDATE_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="SMT_IDLE_TIME_INFOS">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="CURRENT_TIME" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="LINE_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="CURRENT_TIME" Type="date" Nullable="false" />
+          <Property Name="PASS_QTY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDLE_TIME" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CURRENT_HOUR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="CREATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="SMT_OEE_BY_PDLINE">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="WORK_DATE" />
+            <PropertyRef Name="IS_EXCLUDE" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="LINE_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="WORK_DATE" Type="date" Nullable="false" />
+          <Property Name="IS_EXCLUDE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+          <Property Name="UPDATE_DATE" Type="date" />
+        </EntityType>
+        <EntityType Name="SMT_UPH_BY_PDLINE">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="IS_EXCLUDE" />
+            <PropertyRef Name="WORK_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="LINE_ID" Type="varchar2" MaxLength="53" Nullable="false" />
+          <Property Name="IS_EXCLUDE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="WORK_DATE" Type="date" Nullable="false" />
+          <Property Name="UPH" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="date" />
+          <Property Name="UPDATE_DATE" Type="date" />
+          <Property Name="UPDATE_USER" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.AS_SMT_PAST10D_OEE_VALUE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="AS_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="date" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.B9_SMT_PAST10D_OEE_VALUE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="B9_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="date" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.EXC_SMT_PAST10D_OEE_VALUE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="EXC_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="date" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <!--生成过程中发现错误:
+警告 6002: 表/视图“FOXLINKSFC.HM_SMT_PAST10D_OEE_VALUE”未定义主键。已推断出该键，并将定义创建为只读的表/视图。-->
+        <EntityType Name="HM_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="date" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <Function Name="GET_AS_NEW_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_AS_NEW_TOTAL_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_AS_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_AS_TOTAL_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_AUSTIN_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_B9_NEW_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_B9_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_B9_SMT_PASS_QTY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="GET_B9_TOTAL_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+          <Parameter Name="IS_TOTAL_CAPACITY" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GET_CASTOR_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_CRETE_TOTAL_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+          <Parameter Name="IS_TOTAL_CAPACITY" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GET_EXCALIBUR_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_EXCA_TOTAL_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+          <Parameter Name="IS_TOTAL_CAPACITY" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GET_EXC_SMT_PASS_QTY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="GET_HM_NEW_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_HM_NEW_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_HM_NEW_SMT_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_HM_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_HM_TOTAL_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_OVERVIEW_SMT_OEE_EXCLUDE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_OVERVIEW_SMT_SECTION_OEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_PACK_SECTION_LINE_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_PACK_TOTAL_PRODUCTION" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_POLLUX_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_RC_DATAS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="GET_RC_TOTAL_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+          <Parameter Name="ORG_ID" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_EQUIP_OEE_INTERVAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="LINE_NAME" Type="varchar2" Mode="In" />
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_LINE_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_LINE_OEE_UPH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="LINE_NAME" Type="varchar2" Mode="In" />
+          <Parameter Name="LINE_ID" Type="varchar2" Mode="In" />
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_LINE_UPH" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="LINE_ID" Type="varchar2" Mode="In" />
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_OEE_INTERVAL_EXCLUDE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="LINE_NAME" Type="varchar2" Mode="In" />
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_SECTION_EQUIP_OEE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_SECTION_LINE_STATUS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_TOTAL_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+          <Parameter Name="IS_TOTAL_CAPACITY" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_TOTAL_PRODUTION_AMOUNT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_SMT_TOTAL_PROD_AMOUNT" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="MODEL_NO" Type="varchar2" Mode="In" />
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="GET_TAURUS_NEW_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_TAURUS_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+          <Parameter Name="IS_TOTAL_CAPACITY" Type="number" Mode="In" />
+        </Function>
+        <Function Name="GET_TAURUS_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="START_DATE" Type="date" Mode="In" />
+          <Parameter Name="END_DATE" Type="date" Mode="In" />
+        </Function>
+        <Function Name="GET_TAURUS_TOTAL_PACK_CAPACITY" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC">
+          <Parameter Name="TIME_INTERVAL" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SET_AS_SHIP_DATA_INTO_DB" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="SET_AUSTIN_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="SET_B9_SHIPPING_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="SET_HM_SHIP_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <Function Name="SET_TAURUS_SHIP_INFOS" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="FOXLINKSFC" />
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="A_EMPLOYEE_DESC" EntityType="Self.A_EMPLOYEE_DESC" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="A_PACKING_TABLE" EntityType="Self.A_PACKING_TABLE" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="BG_MODEL_LINK" EntityType="Self.BG_MODEL_LINK" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="FL_DASHBOARD_REPORT_TYPE" EntityType="Self.FL_DASHBOARD_REPORT_TYPE" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="FOXLINK_OEE" EntityType="Self.FOXLINK_OEE" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="JOB_EXECUTE_LOG" EntityType="Self.JOB_EXECUTE_LOG" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="MODEL_RPT_LINK" EntityType="Self.MODEL_RPT_LINK" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="PACK_SECTION_TOTAL_CAPACITY" EntityType="Self.PACK_SECTION_TOTAL_CAPACITY" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="PACK_SECTION_TOTAL_PRODUCTION" EntityType="Self.PACK_SECTION_TOTAL_PRODUCTION" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="REPORT_GROUPS" EntityType="Self.REPORT_GROUPS" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="REPORT_ITEMS" EntityType="Self.REPORT_ITEMS" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="SHIPPING_INFOS" EntityType="Self.SHIPPING_INFOS" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="SMT_AVG_OEE_INFOS" EntityType="Self.SMT_AVG_OEE_INFOS" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="SMT_IDLE_TIME_INFOS" EntityType="Self.SMT_IDLE_TIME_INFOS" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="SMT_OEE_BY_PDLINE" EntityType="Self.SMT_OEE_BY_PDLINE" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="SMT_UPH_BY_PDLINE" EntityType="Self.SMT_UPH_BY_PDLINE" Schema="FOXLINKSFC" store:Type="Tables" />
+          <EntitySet Name="A_PRIVILEGE_DESC" EntityType="Self.A_PRIVILEGE_DESC" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"A_PRIVILEGE_DESC"."EMPNO" AS "EMPNO", 
+"A_PRIVILEGE_DESC"."A_S" AS "A_S", 
+"A_PRIVILEGE_DESC"."H_M" AS "H_M", 
+"A_PRIVILEGE_DESC"."TAURUS" AS "TAURUS", 
+"A_PRIVILEGE_DESC"."EXCA" AS "EXCA", 
+"A_PRIVILEGE_DESC"."B9" AS "B9", 
+"A_PRIVILEGE_DESC"."UPDATE_USER" AS "UPDATE_USER", 
+"A_PRIVILEGE_DESC"."AUSTIN" AS "AUSTIN", 
+"A_PRIVILEGE_DESC"."CRETE" AS "CRETE"
+FROM "FOXLINKSFC"."A_PRIVILEGE_DESC" "A_PRIVILEGE_DESC"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FL_PDLINE_PASS_QTY_HISTORY" EntityType="Self.FL_PDLINE_PASS_QTY_HISTORY" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"FL_PDLINE_PASS_QTY_HISTORY"."PDLINE_ID" AS "PDLINE_ID", 
+"FL_PDLINE_PASS_QTY_HISTORY"."CURRENT_TIME" AS "CURRENT_TIME", 
+"FL_PDLINE_PASS_QTY_HISTORY"."PASS_QTY" AS "PASS_QTY", 
+"FL_PDLINE_PASS_QTY_HISTORY"."IDLE_TIME" AS "IDLE_TIME", 
+"FL_PDLINE_PASS_QTY_HISTORY"."MODEL_NAME" AS "MODEL_NAME", 
+"FL_PDLINE_PASS_QTY_HISTORY"."CURRENT_HOUR" AS "CURRENT_HOUR"
+FROM "FOXLINKSFC"."FL_PDLINE_PASS_QTY_HISTORY" "FL_PDLINE_PASS_QTY_HISTORY"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FL_PDLINE_PASS_QTY_TEST" EntityType="Self.FL_PDLINE_PASS_QTY_TEST" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"FL_PDLINE_PASS_QTY_TEST"."CURRENT_TIME" AS "CURRENT_TIME", 
+"FL_PDLINE_PASS_QTY_TEST"."MODEL_NAME" AS "MODEL_NAME", 
+"FL_PDLINE_PASS_QTY_TEST"."PDLINE_ID" AS "PDLINE_ID", 
+"FL_PDLINE_PASS_QTY_TEST"."PASS_QTY" AS "PASS_QTY", 
+"FL_PDLINE_PASS_QTY_TEST"."IDLE_TIME" AS "IDLE_TIME", 
+"FL_PDLINE_PASS_QTY_TEST"."CURRENT_HOUR" AS "CURRENT_HOUR"
+FROM "FOXLINKSFC"."FL_PDLINE_PASS_QTY_TEST" "FL_PDLINE_PASS_QTY_TEST"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FL_SHIPPING_INFOS" EntityType="Self.FL_SHIPPING_INFOS" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"FL_SHIPPING_INFOS"."DATE_ID" AS "DATE_ID", 
+"FL_SHIPPING_INFOS"."MODEL_NO" AS "MODEL_NO", 
+"FL_SHIPPING_INFOS"."ERP_DATE" AS "ERP_DATE", 
+"FL_SHIPPING_INFOS"."SFC_COMP_QTY" AS "SFC_COMP_QTY", 
+"FL_SHIPPING_INFOS"."ERP_COMP_QTY" AS "ERP_COMP_QTY", 
+"FL_SHIPPING_INFOS"."ERP_SHIP_QTY" AS "ERP_SHIP_QTY"
+FROM "FOXLINKSFC"."FL_SHIPPING_INFOS" "FL_SHIPPING_INFOS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FOXLINK_OEE_20160819_BAK" EntityType="Self.FOXLINK_OEE_20160819_BAK" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"FOXLINK_OEE_20160819_BAK"."PDLINE_ID" AS "PDLINE_ID", 
+"FOXLINK_OEE_20160819_BAK"."IDLE_MINUTE" AS "IDLE_MINUTE", 
+"FOXLINK_OEE_20160819_BAK"."DTTM" AS "DTTM", 
+"FOXLINK_OEE_20160819_BAK"."MODEL_NAME" AS "MODEL_NAME", 
+"FOXLINK_OEE_20160819_BAK"."OEE_VALUE" AS "OEE_VALUE"
+FROM "FOXLINKSFC"."FOXLINK_OEE_20160819_BAK" "FOXLINK_OEE_20160819_BAK"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="FOXLINK_OEE_BACKUP" EntityType="Self.FOXLINK_OEE_BACKUP" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"FOXLINK_OEE_BACKUP"."PDLINE_ID" AS "PDLINE_ID", 
+"FOXLINK_OEE_BACKUP"."IDLE_MINUTE" AS "IDLE_MINUTE", 
+"FOXLINK_OEE_BACKUP"."DTTM" AS "DTTM", 
+"FOXLINK_OEE_BACKUP"."MODEL_NAME" AS "MODEL_NAME", 
+"FOXLINK_OEE_BACKUP"."OEE_VALUE" AS "OEE_VALUE"
+FROM "FOXLINKSFC"."FOXLINK_OEE_BACKUP" "FOXLINK_OEE_BACKUP"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RC_RESOURCES_ALL" EntityType="Self.RC_RESOURCES_ALL" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"RC_RESOURCES_ALL"."RC_RESOURCE_ID" AS "RC_RESOURCE_ID", 
+"RC_RESOURCES_ALL"."RESOURCE_NAME" AS "RESOURCE_NAME", 
+"RC_RESOURCES_ALL"."RESOURCE_CATEGORY" AS "RESOURCE_CATEGORY", 
+"RC_RESOURCES_ALL"."DESCRIPTION" AS "DESCRIPTION", 
+"RC_RESOURCES_ALL"."UOM_CODE" AS "UOM_CODE", 
+"RC_RESOURCES_ALL"."BRAND" AS "BRAND", 
+"RC_RESOURCES_ALL"."MODEL" AS "MODEL", 
+"RC_RESOURCES_ALL"."BOM_DEPARTMENT_ID" AS "BOM_DEPARTMENT_ID", 
+"RC_RESOURCES_ALL"."BOM_RESOURCE_ID" AS "BOM_RESOURCE_ID", 
+"RC_RESOURCES_ALL"."ORGANIZATION_ID" AS "ORGANIZATION_ID", 
+"RC_RESOURCES_ALL"."EFFECTIVE_START_DATE" AS "EFFECTIVE_START_DATE", 
+"RC_RESOURCES_ALL"."EFFECTIVE_END_DATE" AS "EFFECTIVE_END_DATE", 
+"RC_RESOURCES_ALL"."CREATED_BY" AS "CREATED_BY", 
+"RC_RESOURCES_ALL"."CREATION_DATE" AS "CREATION_DATE", 
+"RC_RESOURCES_ALL"."LAST_UPDATED_BY" AS "LAST_UPDATED_BY", 
+"RC_RESOURCES_ALL"."LAST_UPDATE_DATE" AS "LAST_UPDATE_DATE", 
+"RC_RESOURCES_ALL"."LAST_UPDATE_LOGIN" AS "LAST_UPDATE_LOGIN", 
+"RC_RESOURCES_ALL"."ATTRIBUTE_CATEGORY" AS "ATTRIBUTE_CATEGORY", 
+"RC_RESOURCES_ALL"."ATTRIBUTE1" AS "ATTRIBUTE1", 
+"RC_RESOURCES_ALL"."ATTRIBUTE2" AS "ATTRIBUTE2", 
+"RC_RESOURCES_ALL"."ATTRIBUTE3" AS "ATTRIBUTE3", 
+"RC_RESOURCES_ALL"."ATTRIBUTE4" AS "ATTRIBUTE4", 
+"RC_RESOURCES_ALL"."ATTRIBUTE5" AS "ATTRIBUTE5", 
+"RC_RESOURCES_ALL"."ATTRIBUTE6" AS "ATTRIBUTE6", 
+"RC_RESOURCES_ALL"."ATTRIBUTE7" AS "ATTRIBUTE7", 
+"RC_RESOURCES_ALL"."ATTRIBUTE8" AS "ATTRIBUTE8", 
+"RC_RESOURCES_ALL"."ATTRIBUTE9" AS "ATTRIBUTE9", 
+"RC_RESOURCES_ALL"."ATTRIBUTE10" AS "ATTRIBUTE10", 
+"RC_RESOURCES_ALL"."ATTRIBUTE11" AS "ATTRIBUTE11", 
+"RC_RESOURCES_ALL"."ATTRIBUTE12" AS "ATTRIBUTE12", 
+"RC_RESOURCES_ALL"."ATTRIBUTE13" AS "ATTRIBUTE13", 
+"RC_RESOURCES_ALL"."ATTRIBUTE14" AS "ATTRIBUTE14", 
+"RC_RESOURCES_ALL"."ATTRIBUTE15" AS "ATTRIBUTE15", 
+"RC_RESOURCES_ALL"."PROD_LINE_CODE" AS "PROD_LINE_CODE", 
+"RC_RESOURCES_ALL"."ASSET_ID" AS "ASSET_ID", 
+"RC_RESOURCES_ALL"."SPC_DESCRIPTION" AS "SPC_DESCRIPTION", 
+"RC_RESOURCES_ALL"."SOURCE_TYPE" AS "SOURCE_TYPE", 
+"RC_RESOURCES_ALL"."ASSIGN_TO_USER_ID" AS "ASSIGN_TO_USER_ID", 
+"RC_RESOURCES_ALL"."INVENTORY_ITEM_ID" AS "INVENTORY_ITEM_ID", 
+"RC_RESOURCES_ALL"."ORIGINAL_QTY" AS "ORIGINAL_QTY", 
+"RC_RESOURCES_ALL"."ONHAND_QTY" AS "ONHAND_QTY", 
+"RC_RESOURCES_ALL"."RESOURCE_COST" AS "RESOURCE_COST", 
+"RC_RESOURCES_ALL"."DATE_IN_SERVICE" AS "DATE_IN_SERVICE", 
+"RC_RESOURCES_ALL"."MATERIAL_TYPE" AS "MATERIAL_TYPE", 
+"RC_RESOURCES_ALL"."CAVE_NO" AS "CAVE_NO", 
+"RC_RESOURCES_ALL"."NOTE1" AS "NOTE1", 
+"RC_RESOURCES_ALL"."NOTE2" AS "NOTE2", 
+"RC_RESOURCES_ALL"."NOTE3" AS "NOTE3", 
+"RC_RESOURCES_ALL"."NOTE4" AS "NOTE4", 
+"RC_RESOURCES_ALL"."NOTE5" AS "NOTE5", 
+"RC_RESOURCES_ALL"."ORI_LOCATION_ID" AS "ORI_LOCATION_ID", 
+"RC_RESOURCES_ALL"."LOT_CONTROL" AS "LOT_CONTROL", 
+"RC_RESOURCES_ALL"."EMP_CLASS_CODE" AS "EMP_CLASS_CODE", 
+"RC_RESOURCES_ALL"."QA_PLAN_ID" AS "QA_PLAN_ID", 
+"RC_RESOURCES_ALL"."MAINTAIN_JUDGE_TYPE" AS "MAINTAIN_JUDGE_TYPE", 
+"RC_RESOURCES_ALL"."MAINTAIN_INTERVAL" AS "MAINTAIN_INTERVAL", 
+"RC_RESOURCES_ALL"."LIFESPAN" AS "LIFESPAN", 
+"RC_RESOURCES_ALL"."EXTEND_LIFESPAN" AS "EXTEND_LIFESPAN", 
+"RC_RESOURCES_ALL"."CURRENCY_CODE" AS "CURRENCY_CODE", 
+"RC_RESOURCES_ALL"."PROD_COUNTRY" AS "PROD_COUNTRY", 
+"RC_RESOURCES_ALL"."PROD_FAMILY" AS "PROD_FAMILY", 
+"RC_RESOURCES_ALL"."SAFETY_STOCK" AS "SAFETY_STOCK", 
+"RC_RESOURCES_ALL"."COST_TYPE" AS "COST_TYPE", 
+"RC_RESOURCES_ALL"."MAINTAIN_PLAN_ID" AS "MAINTAIN_PLAN_ID", 
+"RC_RESOURCES_ALL"."NOTE6" AS "NOTE6", 
+"RC_RESOURCES_ALL"."NOTE7" AS "NOTE7", 
+"RC_RESOURCES_ALL"."NOTE8" AS "NOTE8", 
+"RC_RESOURCES_ALL"."NOTE9" AS "NOTE9", 
+"RC_RESOURCES_ALL"."NOTE10" AS "NOTE10", 
+"RC_RESOURCES_ALL"."NOTE11" AS "NOTE11", 
+"RC_RESOURCES_ALL"."NOTE12" AS "NOTE12", 
+"RC_RESOURCES_ALL"."NOTE13" AS "NOTE13", 
+"RC_RESOURCES_ALL"."NOTE14" AS "NOTE14", 
+"RC_RESOURCES_ALL"."NOTE15" AS "NOTE15", 
+"RC_RESOURCES_ALL"."NOTE16" AS "NOTE16", 
+"RC_RESOURCES_ALL"."NOTE17" AS "NOTE17", 
+"RC_RESOURCES_ALL"."NOTE18" AS "NOTE18", 
+"RC_RESOURCES_ALL"."NOTE19" AS "NOTE19", 
+"RC_RESOURCES_ALL"."NOTE20" AS "NOTE20", 
+"RC_RESOURCES_ALL"."APPLY_MANDATORY_FLAG" AS "APPLY_MANDATORY_FLAG", 
+"RC_RESOURCES_ALL"."MOLD_NUMBER" AS "MOLD_NUMBER", 
+"RC_RESOURCES_ALL"."HARDNESS" AS "HARDNESS", 
+"RC_RESOURCES_ALL"."EXTENSION" AS "EXTENSION", 
+"RC_RESOURCES_ALL"."ENG_USER_ID" AS "ENG_USER_ID", 
+"RC_RESOURCES_ALL"."DESIGNER_USER_ID" AS "DESIGNER_USER_ID", 
+"RC_RESOURCES_ALL"."ASSEMBLY_ITEM_ID" AS "ASSEMBLY_ITEM_ID", 
+"RC_RESOURCES_ALL"."CUSTOMER_NAME" AS "CUSTOMER_NAME", 
+"RC_RESOURCES_ALL"."CHARGE_SOURCE" AS "CHARGE_SOURCE", 
+"RC_RESOURCES_ALL"."STANDARD_MFG_RATE" AS "STANDARD_MFG_RATE", 
+"RC_RESOURCES_ALL"."CATEGORY1" AS "CATEGORY1", 
+"RC_RESOURCES_ALL"."CATEGORY2" AS "CATEGORY2", 
+"RC_RESOURCES_ALL"."CATEGORY3" AS "CATEGORY3", 
+"RC_RESOURCES_ALL"."CATEGORY4" AS "CATEGORY4", 
+"RC_RESOURCES_ALL"."CATEGORY5" AS "CATEGORY5", 
+"RC_RESOURCES_ALL"."HOLD_FLAG" AS "HOLD_FLAG", 
+"RC_RESOURCES_ALL"."HOLD_REASON" AS "HOLD_REASON", 
+"RC_RESOURCES_ALL"."PRIMARY_MTL_ITEM_ID" AS "PRIMARY_MTL_ITEM_ID", 
+"RC_RESOURCES_ALL"."MOLD_QTY_PER_ASSEMBLY" AS "MOLD_QTY_PER_ASSEMBLY", 
+"RC_RESOURCES_ALL"."MOLD_REAL_QTY_PER_ASSEMBLY" AS "MOLD_REAL_QTY_PER_ASSEMBLY", 
+"RC_RESOURCES_ALL"."MOLD_GOOD_CAVE" AS "MOLD_GOOD_CAVE", 
+"RC_RESOURCES_ALL"."QUOTATION_CONTROL" AS "QUOTATION_CONTROL", 
+"RC_RESOURCES_ALL"."EQUIP_CATEGORY" AS "EQUIP_CATEGORY", 
+"RC_RESOURCES_ALL"."EQUIP_ONLINE_FLAG" AS "EQUIP_ONLINE_FLAG"
+FROM "FOXLINKSFC"."RC_RESOURCES_ALL" "RC_RESOURCES_ALL"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="RC_WORKING_HOURS" EntityType="Self.RC_WORKING_HOURS" store:Type="Tables" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"RC_WORKING_HOURS"."WH_HEADER_ID" AS "WH_HEADER_ID", 
+"RC_WORKING_HOURS"."ORG_CODE" AS "ORG_CODE", 
+"RC_WORKING_HOURS"."PROD_DATE" AS "PROD_DATE", 
+"RC_WORKING_HOURS"."RC_NO" AS "RC_NO", 
+"RC_WORKING_HOURS"."RC_STATUS" AS "RC_STATUS", 
+"RC_WORKING_HOURS"."PROD_QTY" AS "PROD_QTY", 
+"RC_WORKING_HOURS"."DEPARTMENT_CODE" AS "DEPARTMENT_CODE", 
+"RC_WORKING_HOURS"."DEPARTMENT_NAME" AS "DEPARTMENT_NAME", 
+"RC_WORKING_HOURS"."PROD_LINE_CODE" AS "PROD_LINE_CODE", 
+"RC_WORKING_HOURS"."SHIFT_NAME" AS "SHIFT_NAME", 
+"RC_WORKING_HOURS"."OPERATION_NUM" AS "OPERATION_NUM", 
+"RC_WORKING_HOURS"."BOM_RESOURCE_CODE" AS "BOM_RESOURCE_CODE", 
+"RC_WORKING_HOURS"."RESOURCE_TYPE" AS "RESOURCE_TYPE", 
+"RC_WORKING_HOURS"."BOM_RESOURCE_NAME" AS "BOM_RESOURCE_NAME", 
+"RC_WORKING_HOURS"."PROD_TIME" AS "PROD_TIME", 
+"RC_WORKING_HOURS"."SCHEDULE_HOURS" AS "SCHEDULE_HOURS", 
+"RC_WORKING_HOURS"."ATTEND_HOURS" AS "ATTEND_HOURS", 
+"RC_WORKING_HOURS"."LOSS_HOURS" AS "LOSS_HOURS", 
+"RC_WORKING_HOURS"."RC_GOOD_MOVE_QTY" AS "RC_GOOD_MOVE_QTY", 
+"RC_WORKING_HOURS"."RC_NG_MOVE_QTY" AS "RC_NG_MOVE_QTY", 
+"RC_WORKING_HOURS"."WH_DESC" AS "WH_DESC", 
+"RC_WORKING_HOURS"."WIP_ENTITY_NAME" AS "WIP_ENTITY_NAME", 
+"RC_WORKING_HOURS"."JOB_TYPE_MEANING" AS "JOB_TYPE_MEANING", 
+"RC_WORKING_HOURS"."STATUS_TYPE_DISP" AS "STATUS_TYPE_DISP", 
+"RC_WORKING_HOURS"."DATE_RELEASED" AS "DATE_RELEASED", 
+"RC_WORKING_HOURS"."DATE_CLOSED" AS "DATE_CLOSED", 
+"RC_WORKING_HOURS"."PRIMARY_ITEM" AS "PRIMARY_ITEM", 
+"RC_WORKING_HOURS"."PRIMARY_ITEM_DESC" AS "PRIMARY_ITEM_DESC", 
+"RC_WORKING_HOURS"."PRIMARY_UOM_CODE" AS "PRIMARY_UOM_CODE", 
+"RC_WORKING_HOURS"."PRIMARY_ITEM_PROJECT_CODE" AS "PRIMARY_ITEM_PROJECT_CODE", 
+"RC_WORKING_HOURS"."START_QUANTITY" AS "START_QUANTITY", 
+"RC_WORKING_HOURS"."QUANTITY_COMPLETED" AS "QUANTITY_COMPLETED", 
+"RC_WORKING_HOURS"."JOB_GOOD_QTY" AS "JOB_GOOD_QTY", 
+"RC_WORKING_HOURS"."JOB_NG_QTY" AS "JOB_NG_QTY", 
+"RC_WORKING_HOURS"."JOB_UNKNOW_QTY" AS "JOB_UNKNOW_QTY", 
+"RC_WORKING_HOURS"."COMPLETION_SUBINVENTORY" AS "COMPLETION_SUBINVENTORY", 
+"RC_WORKING_HOURS"."RESOURCE_NAME" AS "RESOURCE_NAME", 
+"RC_WORKING_HOURS"."DAILY_REPORT_STATUS" AS "DAILY_REPORT_STATUS", 
+"RC_WORKING_HOURS"."STD_USAGE_RATE" AS "STD_USAGE_RATE", 
+"RC_WORKING_HOURS"."RC_HEADER_ID" AS "RC_HEADER_ID", 
+"RC_WORKING_HOURS"."RC_LINE_ID" AS "RC_LINE_ID", 
+"RC_WORKING_HOURS"."RC_RESOURCE_ID" AS "RC_RESOURCE_ID", 
+"RC_WORKING_HOURS"."WIP_ENTITY_ID" AS "WIP_ENTITY_ID", 
+"RC_WORKING_HOURS"."RESOURCE_ID" AS "RESOURCE_ID", 
+"RC_WORKING_HOURS"."CREATION_DATE" AS "CREATION_DATE", 
+"RC_WORKING_HOURS"."LAST_UPDATE_DATE" AS "LAST_UPDATE_DATE", 
+"RC_WORKING_HOURS"."ORGANIZATION_ID" AS "ORGANIZATION_ID"
+FROM "FOXLINKSFC"."RC_WORKING_HOURS" "RC_WORKING_HOURS"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AS_SMT_PAST10D_OEE_VALUE" EntityType="Self.AS_SMT_PAST10D_OEE_VALUE" store:Type="Views" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"AS_SMT_PAST10D_OEE_VALUE"."DTTM" AS "DTTM", 
+"AS_SMT_PAST10D_OEE_VALUE"."AVG_OEE_VALUE" AS "AVG_OEE_VALUE"
+FROM "FOXLINKSFC"."AS_SMT_PAST10D_OEE_VALUE" "AS_SMT_PAST10D_OEE_VALUE"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="B9_SMT_PAST10D_OEE_VALUE" EntityType="Self.B9_SMT_PAST10D_OEE_VALUE" store:Type="Views" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"B9_SMT_PAST10D_OEE_VALUE"."DTTM" AS "DTTM", 
+"B9_SMT_PAST10D_OEE_VALUE"."AVG_OEE_VALUE" AS "AVG_OEE_VALUE"
+FROM "FOXLINKSFC"."B9_SMT_PAST10D_OEE_VALUE" "B9_SMT_PAST10D_OEE_VALUE"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EXC_SMT_PAST10D_OEE_VALUE" EntityType="Self.EXC_SMT_PAST10D_OEE_VALUE" store:Type="Views" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"EXC_SMT_PAST10D_OEE_VALUE"."DTTM" AS "DTTM", 
+"EXC_SMT_PAST10D_OEE_VALUE"."AVG_OEE_VALUE" AS "AVG_OEE_VALUE"
+FROM "FOXLINKSFC"."EXC_SMT_PAST10D_OEE_VALUE" "EXC_SMT_PAST10D_OEE_VALUE"</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="HM_SMT_PAST10D_OEE_VALUE" EntityType="Self.HM_SMT_PAST10D_OEE_VALUE" store:Type="Views" store:Schema="FOXLINKSFC">
+            <DefiningQuery>SELECT 
+"HM_SMT_PAST10D_OEE_VALUE"."DTTM" AS "DTTM", 
+"HM_SMT_PAST10D_OEE_VALUE"."AVG_OEE_VALUE" AS "AVG_OEE_VALUE"
+FROM "FOXLINKSFC"."HM_SMT_PAST10D_OEE_VALUE" "HM_SMT_PAST10D_OEE_VALUE"</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="A_EMPLOYEE_DESC">
+          <Key>
+            <PropertyRef Name="EMPNO" />
+          </Key>
+          <Property Name="EMPNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PWD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DEPT" Type="Int32" />
+          <Property Name="C_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="IN_TIME" Type="DateTime" />
+          <Property Name="OUT_TIME" Type="DateTime" />
+          <Property Name="STATE" Type="Boolean" />
+          <Property Name="EN_NAME" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_ISADMIN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="A_PACKING_TABLE">
+          <Key>
+            <PropertyRef Name="PACKING_HEHAO" />
+          </Key>
+          <Property Name="PACKING_HEHAO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PACKING_XIANGHAO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PACKING_ZHANBAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ZHUANGHENUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="MUBIAONUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="CHANGER_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="BG_MODEL_LINK">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BG_CODE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FACTORY_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODEL_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PART_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="LINK_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FL_DASHBOARD_REPORT_TYPE">
+          <Key>
+            <PropertyRef Name="REPORT_ID" />
+          </Key>
+          <Property Name="REPORT_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REPORT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="REPORT_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DTTM" Type="DateTime" />
+          <Property Name="REPORT_ENABLE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FOXLINK_OEE">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="DTTM" />
+            <PropertyRef Name="MODEL_NAME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDLE_MINUTE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DTTM" Type="DateTime" Nullable="false" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="JOB_EXECUTE_LOG">
+          <Key>
+            <PropertyRef Name="LOG_UUID" />
+          </Key>
+          <Property Name="PROCEDURE_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="EXECUTE_BEGIN_TIME" Type="DateTime" />
+          <Property Name="EXECUTE_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EXECUTE_STATUS_DETAILS" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EXECUTE_END_TIME" Type="DateTime" />
+          <Property Name="LOG_UUID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MODEL_RPT_LINK">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="RPT_GROUP_ID" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RPT_GROUP_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODEL_RPT_LINK_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PACK_SECTION_TOTAL_CAPACITY">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="WORK_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="PACKING_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FIRT_PASS_RATE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IS_TOTAL_CAPACITY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="PACK_SECTION_TOTAL_PRODUCTION">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="WORK_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="PACKING_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="REPORT_GROUPS">
+          <Key>
+            <PropertyRef Name="RPT_GROUP_ID" />
+          </Key>
+          <Property Name="RPT_GROUP_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RPT_GROUP_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RPT_GROUP_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORT_ITEMS">
+          <Key>
+            <PropertyRef Name="RPT_GROUP_ID" />
+            <PropertyRef Name="RPT_ITEM_ID" />
+          </Key>
+          <Property Name="RPT_GROUP_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RPT_ITEM_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RPT_ITEM_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RPT_ITEM_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="WEB_SERVICE_URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SHIPPING_INFOS">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="WOR_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WOR_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="MODEL_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="COMP_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SHIP_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SMT_AVG_OEE_INFOS">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="WORK_DATE" />
+            <PropertyRef Name="IS_EXCLUDE" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="IS_EXCLUDE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="SMT_IDLE_TIME_INFOS">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="CURRENT_TIME" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CURRENT_TIME" Type="DateTime" Nullable="false" />
+          <Property Name="PASS_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="IDLE_TIME" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CURRENT_HOUR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SMT_OEE_BY_PDLINE">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="WORK_DATE" />
+            <PropertyRef Name="IS_EXCLUDE" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="IS_EXCLUDE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+        </EntityType>
+        <EntityType Name="SMT_UPH_BY_PDLINE">
+          <Key>
+            <PropertyRef Name="LINK_ID" />
+            <PropertyRef Name="LINE_ID" />
+            <PropertyRef Name="IS_EXCLUDE" />
+            <PropertyRef Name="WORK_DATE" />
+          </Key>
+          <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IS_EXCLUDE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="UPH" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_DATE" Type="DateTime" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="A_PRIVILEGE_DESC">
+          <Key>
+            <PropertyRef Name="EMPNO" />
+          </Key>
+          <Property Name="EMPNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="A_S" Type="Boolean" />
+          <Property Name="H_M" Type="Boolean" />
+          <Property Name="TAURUS" Type="Boolean" />
+          <Property Name="EXCA" Type="Boolean" />
+          <Property Name="B9" Type="Boolean" />
+          <Property Name="UPDATE_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="AUSTIN" Type="Boolean" />
+          <Property Name="CRETE" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="FL_PDLINE_PASS_QTY_HISTORY">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="CURRENT_TIME" />
+            <PropertyRef Name="PASS_QTY" />
+            <PropertyRef Name="IDLE_TIME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CURRENT_TIME" Type="DateTime" Nullable="false" />
+          <Property Name="PASS_QTY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IDLE_TIME" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CURRENT_HOUR" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="FL_PDLINE_PASS_QTY_TEST">
+          <Key>
+            <PropertyRef Name="MODEL_NAME" />
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="PASS_QTY" />
+            <PropertyRef Name="IDLE_TIME" />
+            <PropertyRef Name="CURRENT_HOUR" />
+          </Key>
+          <Property Name="CURRENT_TIME" Type="DateTime" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PDLINE_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASS_QTY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="IDLE_TIME" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+          <Property Name="CURRENT_HOUR" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FL_SHIPPING_INFOS">
+          <Key>
+            <PropertyRef Name="DATE_ID" />
+            <PropertyRef Name="MODEL_NO" />
+          </Key>
+          <Property Name="DATE_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MODEL_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ERP_DATE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SFC_COMP_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ERP_COMP_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ERP_SHIP_QTY" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="FOXLINK_OEE_20160819_BAK">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="MODEL_NAME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDLE_MINUTE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DTTM" Type="DateTime" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="FOXLINK_OEE_BACKUP">
+          <Key>
+            <PropertyRef Name="PDLINE_ID" />
+            <PropertyRef Name="MODEL_NAME" />
+          </Key>
+          <Property Name="PDLINE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IDLE_MINUTE" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DTTM" Type="DateTime" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="OEE_VALUE" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="RC_RESOURCES_ALL">
+          <Key>
+            <PropertyRef Name="RC_RESOURCE_ID" />
+            <PropertyRef Name="RESOURCE_NAME" />
+            <PropertyRef Name="RESOURCE_CATEGORY" />
+            <PropertyRef Name="UOM_CODE" />
+            <PropertyRef Name="ORGANIZATION_ID" />
+            <PropertyRef Name="CREATED_BY" />
+            <PropertyRef Name="CREATION_DATE" />
+            <PropertyRef Name="LAST_UPDATED_BY" />
+            <PropertyRef Name="LAST_UPDATE_DATE" />
+          </Key>
+          <Property Name="RC_RESOURCE_ID" Type="Int64" Nullable="false" />
+          <Property Name="RESOURCE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCE_CATEGORY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="UOM_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BRAND" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="MODEL" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="BOM_DEPARTMENT_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="BOM_RESOURCE_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ORGANIZATION_ID" Type="Int64" Nullable="false" />
+          <Property Name="EFFECTIVE_START_DATE" Type="DateTime" />
+          <Property Name="EFFECTIVE_END_DATE" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="Int64" Nullable="false" />
+          <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+          <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="LAST_UPDATE_LOGIN" Type="Int64" />
+          <Property Name="ATTRIBUTE_CATEGORY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE2" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE3" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE4" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE5" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE6" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE7" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE8" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE9" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE10" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE11" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE12" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE13" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE14" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ATTRIBUTE15" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_LINE_CODE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ASSET_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SPC_DESCRIPTION" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="SOURCE_TYPE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="ASSIGN_TO_USER_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INVENTORY_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ORIGINAL_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ONHAND_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RESOURCE_COST" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DATE_IN_SERVICE" Type="DateTime" />
+          <Property Name="MATERIAL_TYPE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CAVE_NO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE1" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE2" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE3" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE4" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE5" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="ORI_LOCATION_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOT_CONTROL" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="EMP_CLASS_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="QA_PLAN_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MAINTAIN_JUDGE_TYPE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="MAINTAIN_INTERVAL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LIFESPAN" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="EXTEND_LIFESPAN" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CURRENCY_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_COUNTRY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_FAMILY" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="SAFETY_STOCK" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COST_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MAINTAIN_PLAN_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="NOTE6" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE7" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE8" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE9" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE10" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE11" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE12" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE13" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE14" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE15" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE16" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE17" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE18" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE19" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="NOTE20" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="APPLY_MANDATORY_FLAG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MOLD_NUMBER" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="HARDNESS" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="EXTENSION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="ENG_USER_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DESIGNER_USER_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ASSEMBLY_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CUSTOMER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CHARGE_SOURCE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="STANDARD_MFG_RATE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY4" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CATEGORY5" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="HOLD_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="HOLD_REASON" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMARY_MTL_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MOLD_QTY_PER_ASSEMBLY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MOLD_REAL_QTY_PER_ASSEMBLY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="MOLD_GOOD_CAVE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="QUOTATION_CONTROL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="EQUIP_CATEGORY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="EQUIP_ONLINE_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="RC_WORKING_HOURS">
+          <Key>
+            <PropertyRef Name="WH_HEADER_ID" />
+            <PropertyRef Name="RC_NO" />
+            <PropertyRef Name="PROD_QTY" />
+            <PropertyRef Name="DEPARTMENT_NAME" />
+            <PropertyRef Name="OPERATION_NUM" />
+            <PropertyRef Name="BOM_RESOURCE_CODE" />
+            <PropertyRef Name="WIP_ENTITY_NAME" />
+            <PropertyRef Name="JOB_TYPE_MEANING" />
+            <PropertyRef Name="STATUS_TYPE_DISP" />
+            <PropertyRef Name="START_QUANTITY" />
+            <PropertyRef Name="QUANTITY_COMPLETED" />
+            <PropertyRef Name="RC_HEADER_ID" />
+            <PropertyRef Name="RC_LINE_ID" />
+            <PropertyRef Name="WIP_ENTITY_ID" />
+            <PropertyRef Name="RESOURCE_ID" />
+            <PropertyRef Name="CREATION_DATE" />
+            <PropertyRef Name="LAST_UPDATE_DATE" />
+            <PropertyRef Name="ORGANIZATION_ID" />
+          </Key>
+          <Property Name="WH_HEADER_ID" Type="Int64" Nullable="false" />
+          <Property Name="ORG_CODE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_DATE" Type="DateTime" />
+          <Property Name="RC_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RC_STATUS" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DEPARTMENT_CODE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROD_LINE_CODE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="SHIFT_NAME" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="OPERATION_NUM" Type="Int64" Nullable="false" />
+          <Property Name="BOM_RESOURCE_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOURCE_TYPE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="BOM_RESOURCE_NAME" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="PROD_TIME" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SCHEDULE_HOURS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ATTEND_HOURS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="LOSS_HOURS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RC_GOOD_MOVE_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RC_NG_MOVE_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="WH_DESC" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="WIP_ENTITY_NAME" Type="String" MaxLength="480" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="JOB_TYPE_MEANING" Type="String" MaxLength="160" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STATUS_TYPE_DISP" Type="String" MaxLength="160" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DATE_RELEASED" Type="DateTime" />
+          <Property Name="DATE_CLOSED" Type="DateTime" />
+          <Property Name="PRIMARY_ITEM" Type="String" MaxLength="244" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMARY_ITEM_DESC" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMARY_UOM_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="PRIMARY_ITEM_PROJECT_CODE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="START_QUANTITY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="QUANTITY_COMPLETED" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="JOB_GOOD_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="JOB_NG_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="JOB_UNKNOW_QTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COMPLETION_SUBINVENTORY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="RESOURCE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DAILY_REPORT_STATUS" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="STD_USAGE_RATE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RC_HEADER_ID" Type="Int64" Nullable="false" />
+          <Property Name="RC_LINE_ID" Type="Int64" Nullable="false" />
+          <Property Name="RC_RESOURCE_ID" Type="Int64" />
+          <Property Name="WIP_ENTITY_ID" Type="Int64" Nullable="false" />
+          <Property Name="RESOURCE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="ORGANIZATION_ID" Type="Int64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AS_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="DateTime" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="B9_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="DateTime" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="EXC_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="DateTime" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="HM_SMT_PAST10D_OEE_VALUE">
+          <Key>
+            <PropertyRef Name="DTTM" />
+          </Key>
+          <Property Name="DTTM" Type="DateTime" Nullable="false" />
+          <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="FoxlinkSfcContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="A_EMPLOYEE_DESC" EntityType="Self.A_EMPLOYEE_DESC" />
+          <EntitySet Name="A_PACKING_TABLE" EntityType="Self.A_PACKING_TABLE" />
+          <EntitySet Name="BG_MODEL_LINK" EntityType="Self.BG_MODEL_LINK" />
+          <EntitySet Name="FL_DASHBOARD_REPORT_TYPE" EntityType="Self.FL_DASHBOARD_REPORT_TYPE" />
+          <EntitySet Name="FOXLINK_OEE" EntityType="Self.FOXLINK_OEE" />
+          <EntitySet Name="JOB_EXECUTE_LOG" EntityType="Self.JOB_EXECUTE_LOG" />
+          <EntitySet Name="MODEL_RPT_LINK" EntityType="Self.MODEL_RPT_LINK" />
+          <EntitySet Name="PACK_SECTION_TOTAL_CAPACITY" EntityType="Self.PACK_SECTION_TOTAL_CAPACITY" />
+          <EntitySet Name="PACK_SECTION_TOTAL_PRODUCTION" EntityType="Self.PACK_SECTION_TOTAL_PRODUCTION" />
+          <EntitySet Name="REPORT_GROUPS" EntityType="Self.REPORT_GROUPS" />
+          <EntitySet Name="REPORT_ITEMS" EntityType="Self.REPORT_ITEMS" />
+          <EntitySet Name="SHIPPING_INFOS" EntityType="Self.SHIPPING_INFOS" />
+          <EntitySet Name="SMT_AVG_OEE_INFOS" EntityType="Self.SMT_AVG_OEE_INFOS" />
+          <EntitySet Name="SMT_IDLE_TIME_INFOS" EntityType="Self.SMT_IDLE_TIME_INFOS" />
+          <EntitySet Name="SMT_OEE_BY_PDLINE" EntityType="Self.SMT_OEE_BY_PDLINE" />
+          <EntitySet Name="SMT_UPH_BY_PDLINE" EntityType="Self.SMT_UPH_BY_PDLINE" />
+          <EntitySet Name="A_PRIVILEGE_DESC" EntityType="Self.A_PRIVILEGE_DESC" />
+          <EntitySet Name="FL_PDLINE_PASS_QTY_HISTORY" EntityType="Self.FL_PDLINE_PASS_QTY_HISTORY" />
+          <EntitySet Name="FL_PDLINE_PASS_QTY_TEST" EntityType="Self.FL_PDLINE_PASS_QTY_TEST" />
+          <EntitySet Name="FL_SHIPPING_INFOS" EntityType="Self.FL_SHIPPING_INFOS" />
+          <EntitySet Name="FOXLINK_OEE_20160819_BAK" EntityType="Self.FOXLINK_OEE_20160819_BAK" />
+          <EntitySet Name="FOXLINK_OEE_BACKUP" EntityType="Self.FOXLINK_OEE_BACKUP" />
+          <EntitySet Name="RC_RESOURCES_ALL" EntityType="Self.RC_RESOURCES_ALL" />
+          <EntitySet Name="RC_WORKING_HOURS" EntityType="Self.RC_WORKING_HOURS" />
+          <EntitySet Name="AS_SMT_PAST10D_OEE_VALUE" EntityType="Self.AS_SMT_PAST10D_OEE_VALUE" />
+          <EntitySet Name="B9_SMT_PAST10D_OEE_VALUE" EntityType="Self.B9_SMT_PAST10D_OEE_VALUE" />
+          <EntitySet Name="EXC_SMT_PAST10D_OEE_VALUE" EntityType="Self.EXC_SMT_PAST10D_OEE_VALUE" />
+          <EntitySet Name="HM_SMT_PAST10D_OEE_VALUE" EntityType="Self.HM_SMT_PAST10D_OEE_VALUE" />
+          <FunctionImport Name="GET_AS_NEW_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AS_NEW_TOTAL_CAPACITY">
+          <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AS_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AS_TOTAL_PACK_CAPACITY">
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_AUSTIN_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_B9_NEW_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_B9_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_B9_SMT_PASS_QTY" />
+          <FunctionImport Name="GET_B9_TOTAL_PACK_CAPACITY">
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+            <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CASTOR_CAPACITY">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_CRETE_TOTAL_PACK_CAPACITY">
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+            <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_EXCALIBUR_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_EXCA_TOTAL_PACK_CAPACITY">
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+            <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_EXC_SMT_PASS_QTY" />
+          <FunctionImport Name="GET_HM_NEW_PACK_CAPACITY">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_HM_NEW_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_HM_NEW_SMT_CAPACITY">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_HM_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_HM_TOTAL_CAPACITY">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_OVERVIEW_SMT_OEE_EXCLUDE">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_OVERVIEW_SMT_SECTION_OEE">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PACK_SECTION_LINE_INFOS">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_PACK_TOTAL_PRODUCTION">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_POLLUX_CAPACITY">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_RC_DATAS" />
+          <FunctionImport Name="GET_RC_TOTAL_CAPACITY">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="ORG_ID" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_EQUIP_OEE_INTERVAL">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="LINE_NAME" Mode="In" Type="String" />
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_LINE_INFOS">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_LINE_OEE_UPH">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="LINE_NAME" Mode="In" Type="String" />
+            <Parameter Name="LINE_ID" Mode="In" Type="String" />
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_LINE_UPH">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="LINE_ID" Mode="In" Type="String" />
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_OEE_INTERVAL_EXCLUDE">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="LINE_NAME" Mode="In" Type="String" />
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_SECTION_EQUIP_OEE">
+          <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_SECTION_LINE_STATUS">
+          <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_TOTAL_CAPACITY">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+            <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_TOTAL_PRODUTION_AMOUNT">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_SMT_TOTAL_PROD_AMOUNT">
+            <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TAURUS_NEW_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TAURUS_PACK_CAPACITY">
+            <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+            <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TAURUS_SHIPPING_INFOS">
+            <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+            <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+          </FunctionImport>
+          <FunctionImport Name="GET_TAURUS_TOTAL_PACK_CAPACITY">
+          <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SET_AS_SHIP_DATA_INTO_DB" />
+          <FunctionImport Name="SET_AUSTIN_SHIPPING_INFOS" />
+          <FunctionImport Name="SET_B9_SHIPPING_INFOS" />
+          <FunctionImport Name="SET_HM_SHIP_INFOS" />
+          <FunctionImport Name="SET_TAURUS_SHIP_INFOS" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="FoxlinkSfcContext">
+          <EntitySetMapping Name="A_EMPLOYEE_DESC">
+            <EntityTypeMapping TypeName="Model.A_EMPLOYEE_DESC">
+              <MappingFragment StoreEntitySet="A_EMPLOYEE_DESC">
+                <ScalarProperty Name="EMPNO" ColumnName="EMPNO" />
+                <ScalarProperty Name="PWD" ColumnName="PWD" />
+                <ScalarProperty Name="DEPT" ColumnName="DEPT" />
+                <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+                <ScalarProperty Name="IN_TIME" ColumnName="IN_TIME" />
+                <ScalarProperty Name="OUT_TIME" ColumnName="OUT_TIME" />
+                <ScalarProperty Name="STATE" ColumnName="STATE" />
+                <ScalarProperty Name="EN_NAME" ColumnName="EN_NAME" />
+                <ScalarProperty Name="EMP_ISADMIN" ColumnName="EMP_ISADMIN" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PACKING_TABLE">
+            <EntityTypeMapping TypeName="Model.A_PACKING_TABLE">
+              <MappingFragment StoreEntitySet="A_PACKING_TABLE">
+                <ScalarProperty Name="PACKING_HEHAO" ColumnName="PACKING_HEHAO" />
+                <ScalarProperty Name="PACKING_XIANGHAO" ColumnName="PACKING_XIANGHAO" />
+                <ScalarProperty Name="PACKING_ZHANBAN" ColumnName="PACKING_ZHANBAN" />
+                <ScalarProperty Name="ZHUANGHENUM" ColumnName="ZHUANGHENUM" />
+                <ScalarProperty Name="MUBIAONUM" ColumnName="MUBIAONUM" />
+                <ScalarProperty Name="CHANGER_DATE" ColumnName="CHANGER_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BG_MODEL_LINK">
+            <EntityTypeMapping TypeName="Model.BG_MODEL_LINK">
+              <MappingFragment StoreEntitySet="BG_MODEL_LINK">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="BG_CODE" ColumnName="BG_CODE" />
+                <ScalarProperty Name="FACTORY_CODE" ColumnName="FACTORY_CODE" />
+                <ScalarProperty Name="MODEL_NO" ColumnName="MODEL_NO" />
+                <ScalarProperty Name="PART_NO" ColumnName="PART_NO" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="LINK_ENABLE" ColumnName="LINK_ENABLE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FL_DASHBOARD_REPORT_TYPE">
+            <EntityTypeMapping TypeName="Model.FL_DASHBOARD_REPORT_TYPE">
+              <MappingFragment StoreEntitySet="FL_DASHBOARD_REPORT_TYPE">
+                <ScalarProperty Name="REPORT_ID" ColumnName="REPORT_ID" />
+                <ScalarProperty Name="REPORT_NAME" ColumnName="REPORT_NAME" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="REPORT_TYPE" ColumnName="REPORT_TYPE" />
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="REPORT_ENABLE" ColumnName="REPORT_ENABLE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOXLINK_OEE">
+            <EntityTypeMapping TypeName="Model.FOXLINK_OEE">
+              <MappingFragment StoreEntitySet="FOXLINK_OEE">
+                <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+                <ScalarProperty Name="IDLE_MINUTE" ColumnName="IDLE_MINUTE" />
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="JOB_EXECUTE_LOG">
+            <EntityTypeMapping TypeName="Model.JOB_EXECUTE_LOG">
+              <MappingFragment StoreEntitySet="JOB_EXECUTE_LOG">
+                <ScalarProperty Name="PROCEDURE_NAME" ColumnName="PROCEDURE_NAME" />
+                <ScalarProperty Name="EXECUTE_BEGIN_TIME" ColumnName="EXECUTE_BEGIN_TIME" />
+                <ScalarProperty Name="EXECUTE_STATUS" ColumnName="EXECUTE_STATUS" />
+                <ScalarProperty Name="EXECUTE_STATUS_DETAILS" ColumnName="EXECUTE_STATUS_DETAILS" />
+                <ScalarProperty Name="EXECUTE_END_TIME" ColumnName="EXECUTE_END_TIME" />
+                <ScalarProperty Name="LOG_UUID" ColumnName="LOG_UUID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MODEL_RPT_LINK">
+            <EntityTypeMapping TypeName="Model.MODEL_RPT_LINK">
+              <MappingFragment StoreEntitySet="MODEL_RPT_LINK">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="RPT_GROUP_ID" ColumnName="RPT_GROUP_ID" />
+                <ScalarProperty Name="MODEL_RPT_LINK_ENABLE" ColumnName="MODEL_RPT_LINK_ENABLE" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACK_SECTION_TOTAL_CAPACITY">
+            <EntityTypeMapping TypeName="Model.PACK_SECTION_TOTAL_CAPACITY">
+              <MappingFragment StoreEntitySet="PACK_SECTION_TOTAL_CAPACITY">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+                <ScalarProperty Name="PACKING_QTY" ColumnName="PACKING_QTY" />
+                <ScalarProperty Name="FIRT_PASS_RATE" ColumnName="FIRT_PASS_RATE" />
+                <ScalarProperty Name="IS_TOTAL_CAPACITY" ColumnName="IS_TOTAL_CAPACITY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PACK_SECTION_TOTAL_PRODUCTION">
+            <EntityTypeMapping TypeName="Model.PACK_SECTION_TOTAL_PRODUCTION">
+              <MappingFragment StoreEntitySet="PACK_SECTION_TOTAL_PRODUCTION">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+                <ScalarProperty Name="PACKING_QTY" ColumnName="PACKING_QTY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORT_GROUPS">
+            <EntityTypeMapping TypeName="Model.REPORT_GROUPS">
+              <MappingFragment StoreEntitySet="REPORT_GROUPS">
+                <ScalarProperty Name="RPT_GROUP_ID" ColumnName="RPT_GROUP_ID" />
+                <ScalarProperty Name="RPT_GROUP_NAME" ColumnName="RPT_GROUP_NAME" />
+                <ScalarProperty Name="RPT_GROUP_ENABLE" ColumnName="RPT_GROUP_ENABLE" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORT_ITEMS">
+            <EntityTypeMapping TypeName="Model.REPORT_ITEMS">
+              <MappingFragment StoreEntitySet="REPORT_ITEMS">
+                <ScalarProperty Name="RPT_GROUP_ID" ColumnName="RPT_GROUP_ID" />
+                <ScalarProperty Name="RPT_ITEM_ID" ColumnName="RPT_ITEM_ID" />
+                <ScalarProperty Name="RPT_ITEM_NAME" ColumnName="RPT_ITEM_NAME" />
+                <ScalarProperty Name="RPT_ITEM_ENABLE" ColumnName="RPT_ITEM_ENABLE" />
+                <ScalarProperty Name="WEB_SERVICE_URL" ColumnName="WEB_SERVICE_URL" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SHIPPING_INFOS">
+            <EntityTypeMapping TypeName="Model.SHIPPING_INFOS">
+              <MappingFragment StoreEntitySet="SHIPPING_INFOS">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="WOR_DATE" ColumnName="WOR_DATE" />
+                <ScalarProperty Name="MODEL_QTY" ColumnName="MODEL_QTY" />
+                <ScalarProperty Name="COMP_QTY" ColumnName="COMP_QTY" />
+                <ScalarProperty Name="SHIP_QTY" ColumnName="SHIP_QTY" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMT_AVG_OEE_INFOS">
+            <EntityTypeMapping TypeName="Model.SMT_AVG_OEE_INFOS">
+              <MappingFragment StoreEntitySet="SMT_AVG_OEE_INFOS">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+                <ScalarProperty Name="IS_EXCLUDE" ColumnName="IS_EXCLUDE" />
+                <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMT_IDLE_TIME_INFOS">
+            <EntityTypeMapping TypeName="Model.SMT_IDLE_TIME_INFOS">
+              <MappingFragment StoreEntitySet="SMT_IDLE_TIME_INFOS">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="CURRENT_TIME" ColumnName="CURRENT_TIME" />
+                <ScalarProperty Name="PASS_QTY" ColumnName="PASS_QTY" />
+                <ScalarProperty Name="IDLE_TIME" ColumnName="IDLE_TIME" />
+                <ScalarProperty Name="CURRENT_HOUR" ColumnName="CURRENT_HOUR" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMT_OEE_BY_PDLINE">
+            <EntityTypeMapping TypeName="Model.SMT_OEE_BY_PDLINE">
+              <MappingFragment StoreEntitySet="SMT_OEE_BY_PDLINE">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+                <ScalarProperty Name="IS_EXCLUDE" ColumnName="IS_EXCLUDE" />
+                <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SMT_UPH_BY_PDLINE">
+            <EntityTypeMapping TypeName="Model.SMT_UPH_BY_PDLINE">
+              <MappingFragment StoreEntitySet="SMT_UPH_BY_PDLINE">
+                <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+                <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+                <ScalarProperty Name="IS_EXCLUDE" ColumnName="IS_EXCLUDE" />
+                <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+                <ScalarProperty Name="UPH" ColumnName="UPH" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="A_PRIVILEGE_DESC">
+            <EntityTypeMapping TypeName="Model.A_PRIVILEGE_DESC">
+              <MappingFragment StoreEntitySet="A_PRIVILEGE_DESC">
+                <ScalarProperty Name="EMPNO" ColumnName="EMPNO" />
+                <ScalarProperty Name="A_S" ColumnName="A_S" />
+                <ScalarProperty Name="H_M" ColumnName="H_M" />
+                <ScalarProperty Name="TAURUS" ColumnName="TAURUS" />
+                <ScalarProperty Name="EXCA" ColumnName="EXCA" />
+                <ScalarProperty Name="B9" ColumnName="B9" />
+                <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+                <ScalarProperty Name="AUSTIN" ColumnName="AUSTIN" />
+                <ScalarProperty Name="CRETE" ColumnName="CRETE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FL_PDLINE_PASS_QTY_HISTORY">
+            <EntityTypeMapping TypeName="Model.FL_PDLINE_PASS_QTY_HISTORY">
+              <MappingFragment StoreEntitySet="FL_PDLINE_PASS_QTY_HISTORY">
+                <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+                <ScalarProperty Name="CURRENT_TIME" ColumnName="CURRENT_TIME" />
+                <ScalarProperty Name="PASS_QTY" ColumnName="PASS_QTY" />
+                <ScalarProperty Name="IDLE_TIME" ColumnName="IDLE_TIME" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="CURRENT_HOUR" ColumnName="CURRENT_HOUR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FL_PDLINE_PASS_QTY_TEST">
+            <EntityTypeMapping TypeName="Model.FL_PDLINE_PASS_QTY_TEST">
+              <MappingFragment StoreEntitySet="FL_PDLINE_PASS_QTY_TEST">
+                <ScalarProperty Name="CURRENT_TIME" ColumnName="CURRENT_TIME" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+                <ScalarProperty Name="PASS_QTY" ColumnName="PASS_QTY" />
+                <ScalarProperty Name="IDLE_TIME" ColumnName="IDLE_TIME" />
+                <ScalarProperty Name="CURRENT_HOUR" ColumnName="CURRENT_HOUR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FL_SHIPPING_INFOS">
+            <EntityTypeMapping TypeName="Model.FL_SHIPPING_INFOS">
+              <MappingFragment StoreEntitySet="FL_SHIPPING_INFOS">
+                <ScalarProperty Name="DATE_ID" ColumnName="DATE_ID" />
+                <ScalarProperty Name="MODEL_NO" ColumnName="MODEL_NO" />
+                <ScalarProperty Name="ERP_DATE" ColumnName="ERP_DATE" />
+                <ScalarProperty Name="SFC_COMP_QTY" ColumnName="SFC_COMP_QTY" />
+                <ScalarProperty Name="ERP_COMP_QTY" ColumnName="ERP_COMP_QTY" />
+                <ScalarProperty Name="ERP_SHIP_QTY" ColumnName="ERP_SHIP_QTY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOXLINK_OEE_20160819_BAK">
+            <EntityTypeMapping TypeName="Model.FOXLINK_OEE_20160819_BAK">
+              <MappingFragment StoreEntitySet="FOXLINK_OEE_20160819_BAK">
+                <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+                <ScalarProperty Name="IDLE_MINUTE" ColumnName="IDLE_MINUTE" />
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FOXLINK_OEE_BACKUP">
+            <EntityTypeMapping TypeName="Model.FOXLINK_OEE_BACKUP">
+              <MappingFragment StoreEntitySet="FOXLINK_OEE_BACKUP">
+                <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+                <ScalarProperty Name="IDLE_MINUTE" ColumnName="IDLE_MINUTE" />
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RC_RESOURCES_ALL">
+            <EntityTypeMapping TypeName="Model.RC_RESOURCES_ALL">
+              <MappingFragment StoreEntitySet="RC_RESOURCES_ALL">
+                <ScalarProperty Name="RC_RESOURCE_ID" ColumnName="RC_RESOURCE_ID" />
+                <ScalarProperty Name="RESOURCE_NAME" ColumnName="RESOURCE_NAME" />
+                <ScalarProperty Name="RESOURCE_CATEGORY" ColumnName="RESOURCE_CATEGORY" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="UOM_CODE" ColumnName="UOM_CODE" />
+                <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+                <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+                <ScalarProperty Name="BOM_DEPARTMENT_ID" ColumnName="BOM_DEPARTMENT_ID" />
+                <ScalarProperty Name="BOM_RESOURCE_ID" ColumnName="BOM_RESOURCE_ID" />
+                <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+                <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+                <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+                <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+                <ScalarProperty Name="LAST_UPDATE_LOGIN" ColumnName="LAST_UPDATE_LOGIN" />
+                <ScalarProperty Name="ATTRIBUTE_CATEGORY" ColumnName="ATTRIBUTE_CATEGORY" />
+                <ScalarProperty Name="ATTRIBUTE1" ColumnName="ATTRIBUTE1" />
+                <ScalarProperty Name="ATTRIBUTE2" ColumnName="ATTRIBUTE2" />
+                <ScalarProperty Name="ATTRIBUTE3" ColumnName="ATTRIBUTE3" />
+                <ScalarProperty Name="ATTRIBUTE4" ColumnName="ATTRIBUTE4" />
+                <ScalarProperty Name="ATTRIBUTE5" ColumnName="ATTRIBUTE5" />
+                <ScalarProperty Name="ATTRIBUTE6" ColumnName="ATTRIBUTE6" />
+                <ScalarProperty Name="ATTRIBUTE7" ColumnName="ATTRIBUTE7" />
+                <ScalarProperty Name="ATTRIBUTE8" ColumnName="ATTRIBUTE8" />
+                <ScalarProperty Name="ATTRIBUTE9" ColumnName="ATTRIBUTE9" />
+                <ScalarProperty Name="ATTRIBUTE10" ColumnName="ATTRIBUTE10" />
+                <ScalarProperty Name="ATTRIBUTE11" ColumnName="ATTRIBUTE11" />
+                <ScalarProperty Name="ATTRIBUTE12" ColumnName="ATTRIBUTE12" />
+                <ScalarProperty Name="ATTRIBUTE13" ColumnName="ATTRIBUTE13" />
+                <ScalarProperty Name="ATTRIBUTE14" ColumnName="ATTRIBUTE14" />
+                <ScalarProperty Name="ATTRIBUTE15" ColumnName="ATTRIBUTE15" />
+                <ScalarProperty Name="PROD_LINE_CODE" ColumnName="PROD_LINE_CODE" />
+                <ScalarProperty Name="ASSET_ID" ColumnName="ASSET_ID" />
+                <ScalarProperty Name="SPC_DESCRIPTION" ColumnName="SPC_DESCRIPTION" />
+                <ScalarProperty Name="SOURCE_TYPE" ColumnName="SOURCE_TYPE" />
+                <ScalarProperty Name="ASSIGN_TO_USER_ID" ColumnName="ASSIGN_TO_USER_ID" />
+                <ScalarProperty Name="INVENTORY_ITEM_ID" ColumnName="INVENTORY_ITEM_ID" />
+                <ScalarProperty Name="ORIGINAL_QTY" ColumnName="ORIGINAL_QTY" />
+                <ScalarProperty Name="ONHAND_QTY" ColumnName="ONHAND_QTY" />
+                <ScalarProperty Name="RESOURCE_COST" ColumnName="RESOURCE_COST" />
+                <ScalarProperty Name="DATE_IN_SERVICE" ColumnName="DATE_IN_SERVICE" />
+                <ScalarProperty Name="MATERIAL_TYPE" ColumnName="MATERIAL_TYPE" />
+                <ScalarProperty Name="CAVE_NO" ColumnName="CAVE_NO" />
+                <ScalarProperty Name="NOTE1" ColumnName="NOTE1" />
+                <ScalarProperty Name="NOTE2" ColumnName="NOTE2" />
+                <ScalarProperty Name="NOTE3" ColumnName="NOTE3" />
+                <ScalarProperty Name="NOTE4" ColumnName="NOTE4" />
+                <ScalarProperty Name="NOTE5" ColumnName="NOTE5" />
+                <ScalarProperty Name="ORI_LOCATION_ID" ColumnName="ORI_LOCATION_ID" />
+                <ScalarProperty Name="LOT_CONTROL" ColumnName="LOT_CONTROL" />
+                <ScalarProperty Name="EMP_CLASS_CODE" ColumnName="EMP_CLASS_CODE" />
+                <ScalarProperty Name="QA_PLAN_ID" ColumnName="QA_PLAN_ID" />
+                <ScalarProperty Name="MAINTAIN_JUDGE_TYPE" ColumnName="MAINTAIN_JUDGE_TYPE" />
+                <ScalarProperty Name="MAINTAIN_INTERVAL" ColumnName="MAINTAIN_INTERVAL" />
+                <ScalarProperty Name="LIFESPAN" ColumnName="LIFESPAN" />
+                <ScalarProperty Name="EXTEND_LIFESPAN" ColumnName="EXTEND_LIFESPAN" />
+                <ScalarProperty Name="CURRENCY_CODE" ColumnName="CURRENCY_CODE" />
+                <ScalarProperty Name="PROD_COUNTRY" ColumnName="PROD_COUNTRY" />
+                <ScalarProperty Name="PROD_FAMILY" ColumnName="PROD_FAMILY" />
+                <ScalarProperty Name="SAFETY_STOCK" ColumnName="SAFETY_STOCK" />
+                <ScalarProperty Name="COST_TYPE" ColumnName="COST_TYPE" />
+                <ScalarProperty Name="MAINTAIN_PLAN_ID" ColumnName="MAINTAIN_PLAN_ID" />
+                <ScalarProperty Name="NOTE6" ColumnName="NOTE6" />
+                <ScalarProperty Name="NOTE7" ColumnName="NOTE7" />
+                <ScalarProperty Name="NOTE8" ColumnName="NOTE8" />
+                <ScalarProperty Name="NOTE9" ColumnName="NOTE9" />
+                <ScalarProperty Name="NOTE10" ColumnName="NOTE10" />
+                <ScalarProperty Name="NOTE11" ColumnName="NOTE11" />
+                <ScalarProperty Name="NOTE12" ColumnName="NOTE12" />
+                <ScalarProperty Name="NOTE13" ColumnName="NOTE13" />
+                <ScalarProperty Name="NOTE14" ColumnName="NOTE14" />
+                <ScalarProperty Name="NOTE15" ColumnName="NOTE15" />
+                <ScalarProperty Name="NOTE16" ColumnName="NOTE16" />
+                <ScalarProperty Name="NOTE17" ColumnName="NOTE17" />
+                <ScalarProperty Name="NOTE18" ColumnName="NOTE18" />
+                <ScalarProperty Name="NOTE19" ColumnName="NOTE19" />
+                <ScalarProperty Name="NOTE20" ColumnName="NOTE20" />
+                <ScalarProperty Name="APPLY_MANDATORY_FLAG" ColumnName="APPLY_MANDATORY_FLAG" />
+                <ScalarProperty Name="MOLD_NUMBER" ColumnName="MOLD_NUMBER" />
+                <ScalarProperty Name="HARDNESS" ColumnName="HARDNESS" />
+                <ScalarProperty Name="EXTENSION" ColumnName="EXTENSION" />
+                <ScalarProperty Name="ENG_USER_ID" ColumnName="ENG_USER_ID" />
+                <ScalarProperty Name="DESIGNER_USER_ID" ColumnName="DESIGNER_USER_ID" />
+                <ScalarProperty Name="ASSEMBLY_ITEM_ID" ColumnName="ASSEMBLY_ITEM_ID" />
+                <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+                <ScalarProperty Name="CHARGE_SOURCE" ColumnName="CHARGE_SOURCE" />
+                <ScalarProperty Name="STANDARD_MFG_RATE" ColumnName="STANDARD_MFG_RATE" />
+                <ScalarProperty Name="CATEGORY1" ColumnName="CATEGORY1" />
+                <ScalarProperty Name="CATEGORY2" ColumnName="CATEGORY2" />
+                <ScalarProperty Name="CATEGORY3" ColumnName="CATEGORY3" />
+                <ScalarProperty Name="CATEGORY4" ColumnName="CATEGORY4" />
+                <ScalarProperty Name="CATEGORY5" ColumnName="CATEGORY5" />
+                <ScalarProperty Name="HOLD_FLAG" ColumnName="HOLD_FLAG" />
+                <ScalarProperty Name="HOLD_REASON" ColumnName="HOLD_REASON" />
+                <ScalarProperty Name="PRIMARY_MTL_ITEM_ID" ColumnName="PRIMARY_MTL_ITEM_ID" />
+                <ScalarProperty Name="MOLD_QTY_PER_ASSEMBLY" ColumnName="MOLD_QTY_PER_ASSEMBLY" />
+                <ScalarProperty Name="MOLD_REAL_QTY_PER_ASSEMBLY" ColumnName="MOLD_REAL_QTY_PER_ASSEMBLY" />
+                <ScalarProperty Name="MOLD_GOOD_CAVE" ColumnName="MOLD_GOOD_CAVE" />
+                <ScalarProperty Name="QUOTATION_CONTROL" ColumnName="QUOTATION_CONTROL" />
+                <ScalarProperty Name="EQUIP_CATEGORY" ColumnName="EQUIP_CATEGORY" />
+                <ScalarProperty Name="EQUIP_ONLINE_FLAG" ColumnName="EQUIP_ONLINE_FLAG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RC_WORKING_HOURS">
+            <EntityTypeMapping TypeName="Model.RC_WORKING_HOURS">
+              <MappingFragment StoreEntitySet="RC_WORKING_HOURS">
+                <ScalarProperty Name="WH_HEADER_ID" ColumnName="WH_HEADER_ID" />
+                <ScalarProperty Name="ORG_CODE" ColumnName="ORG_CODE" />
+                <ScalarProperty Name="PROD_DATE" ColumnName="PROD_DATE" />
+                <ScalarProperty Name="RC_NO" ColumnName="RC_NO" />
+                <ScalarProperty Name="RC_STATUS" ColumnName="RC_STATUS" />
+                <ScalarProperty Name="PROD_QTY" ColumnName="PROD_QTY" />
+                <ScalarProperty Name="DEPARTMENT_CODE" ColumnName="DEPARTMENT_CODE" />
+                <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+                <ScalarProperty Name="PROD_LINE_CODE" ColumnName="PROD_LINE_CODE" />
+                <ScalarProperty Name="SHIFT_NAME" ColumnName="SHIFT_NAME" />
+                <ScalarProperty Name="OPERATION_NUM" ColumnName="OPERATION_NUM" />
+                <ScalarProperty Name="BOM_RESOURCE_CODE" ColumnName="BOM_RESOURCE_CODE" />
+                <ScalarProperty Name="RESOURCE_TYPE" ColumnName="RESOURCE_TYPE" />
+                <ScalarProperty Name="BOM_RESOURCE_NAME" ColumnName="BOM_RESOURCE_NAME" />
+                <ScalarProperty Name="PROD_TIME" ColumnName="PROD_TIME" />
+                <ScalarProperty Name="SCHEDULE_HOURS" ColumnName="SCHEDULE_HOURS" />
+                <ScalarProperty Name="ATTEND_HOURS" ColumnName="ATTEND_HOURS" />
+                <ScalarProperty Name="LOSS_HOURS" ColumnName="LOSS_HOURS" />
+                <ScalarProperty Name="RC_GOOD_MOVE_QTY" ColumnName="RC_GOOD_MOVE_QTY" />
+                <ScalarProperty Name="RC_NG_MOVE_QTY" ColumnName="RC_NG_MOVE_QTY" />
+                <ScalarProperty Name="WH_DESC" ColumnName="WH_DESC" />
+                <ScalarProperty Name="WIP_ENTITY_NAME" ColumnName="WIP_ENTITY_NAME" />
+                <ScalarProperty Name="JOB_TYPE_MEANING" ColumnName="JOB_TYPE_MEANING" />
+                <ScalarProperty Name="STATUS_TYPE_DISP" ColumnName="STATUS_TYPE_DISP" />
+                <ScalarProperty Name="DATE_RELEASED" ColumnName="DATE_RELEASED" />
+                <ScalarProperty Name="DATE_CLOSED" ColumnName="DATE_CLOSED" />
+                <ScalarProperty Name="PRIMARY_ITEM" ColumnName="PRIMARY_ITEM" />
+                <ScalarProperty Name="PRIMARY_ITEM_DESC" ColumnName="PRIMARY_ITEM_DESC" />
+                <ScalarProperty Name="PRIMARY_UOM_CODE" ColumnName="PRIMARY_UOM_CODE" />
+                <ScalarProperty Name="PRIMARY_ITEM_PROJECT_CODE" ColumnName="PRIMARY_ITEM_PROJECT_CODE" />
+                <ScalarProperty Name="START_QUANTITY" ColumnName="START_QUANTITY" />
+                <ScalarProperty Name="QUANTITY_COMPLETED" ColumnName="QUANTITY_COMPLETED" />
+                <ScalarProperty Name="JOB_GOOD_QTY" ColumnName="JOB_GOOD_QTY" />
+                <ScalarProperty Name="JOB_NG_QTY" ColumnName="JOB_NG_QTY" />
+                <ScalarProperty Name="JOB_UNKNOW_QTY" ColumnName="JOB_UNKNOW_QTY" />
+                <ScalarProperty Name="COMPLETION_SUBINVENTORY" ColumnName="COMPLETION_SUBINVENTORY" />
+                <ScalarProperty Name="RESOURCE_NAME" ColumnName="RESOURCE_NAME" />
+                <ScalarProperty Name="DAILY_REPORT_STATUS" ColumnName="DAILY_REPORT_STATUS" />
+                <ScalarProperty Name="STD_USAGE_RATE" ColumnName="STD_USAGE_RATE" />
+                <ScalarProperty Name="RC_HEADER_ID" ColumnName="RC_HEADER_ID" />
+                <ScalarProperty Name="RC_LINE_ID" ColumnName="RC_LINE_ID" />
+                <ScalarProperty Name="RC_RESOURCE_ID" ColumnName="RC_RESOURCE_ID" />
+                <ScalarProperty Name="WIP_ENTITY_ID" ColumnName="WIP_ENTITY_ID" />
+                <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+                <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+                <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+                <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AS_SMT_PAST10D_OEE_VALUE">
+            <EntityTypeMapping TypeName="Model.AS_SMT_PAST10D_OEE_VALUE">
+              <MappingFragment StoreEntitySet="AS_SMT_PAST10D_OEE_VALUE">
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="B9_SMT_PAST10D_OEE_VALUE">
+            <EntityTypeMapping TypeName="Model.B9_SMT_PAST10D_OEE_VALUE">
+              <MappingFragment StoreEntitySet="B9_SMT_PAST10D_OEE_VALUE">
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EXC_SMT_PAST10D_OEE_VALUE">
+            <EntityTypeMapping TypeName="Model.EXC_SMT_PAST10D_OEE_VALUE">
+              <MappingFragment StoreEntitySet="EXC_SMT_PAST10D_OEE_VALUE">
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HM_SMT_PAST10D_OEE_VALUE">
+            <EntityTypeMapping TypeName="Model.HM_SMT_PAST10D_OEE_VALUE">
+              <MappingFragment StoreEntitySet="HM_SMT_PAST10D_OEE_VALUE">
+                <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+                <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="GET_AS_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_AS_NEW_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_AS_NEW_TOTAL_CAPACITY" FunctionName="Model.Store.GET_AS_NEW_TOTAL_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_AS_SHIPPING_INFOS" FunctionName="Model.Store.GET_AS_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_AS_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_AS_TOTAL_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_AUSTIN_SHIPPING_INFOS" FunctionName="Model.Store.GET_AUSTIN_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_B9_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_B9_NEW_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_B9_SHIPPING_INFOS" FunctionName="Model.Store.GET_B9_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_B9_SMT_PASS_QTY" FunctionName="Model.Store.GET_B9_SMT_PASS_QTY" />
+          <FunctionImportMapping FunctionImportName="GET_B9_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_B9_TOTAL_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_CASTOR_CAPACITY" FunctionName="Model.Store.GET_CASTOR_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_CRETE_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_CRETE_TOTAL_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_EXCALIBUR_SHIPPING_INFOS" FunctionName="Model.Store.GET_EXCALIBUR_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_EXCA_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_EXCA_TOTAL_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_EXC_SMT_PASS_QTY" FunctionName="Model.Store.GET_EXC_SMT_PASS_QTY" />
+          <FunctionImportMapping FunctionImportName="GET_HM_NEW_PACK_CAPACITY" FunctionName="Model.Store.GET_HM_NEW_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_HM_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_HM_NEW_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_HM_NEW_SMT_CAPACITY" FunctionName="Model.Store.GET_HM_NEW_SMT_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_HM_SHIPPING_INFOS" FunctionName="Model.Store.GET_HM_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_HM_TOTAL_CAPACITY" FunctionName="Model.Store.GET_HM_TOTAL_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_OVERVIEW_SMT_OEE_EXCLUDE" FunctionName="Model.Store.GET_OVERVIEW_SMT_OEE_EXCLUDE" />
+          <FunctionImportMapping FunctionImportName="GET_OVERVIEW_SMT_SECTION_OEE" FunctionName="Model.Store.GET_OVERVIEW_SMT_SECTION_OEE" />
+          <FunctionImportMapping FunctionImportName="GET_PACK_SECTION_LINE_INFOS" FunctionName="Model.Store.GET_PACK_SECTION_LINE_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_PACK_TOTAL_PRODUCTION" FunctionName="Model.Store.GET_PACK_TOTAL_PRODUCTION" />
+          <FunctionImportMapping FunctionImportName="GET_POLLUX_CAPACITY" FunctionName="Model.Store.GET_POLLUX_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_RC_DATAS" FunctionName="Model.Store.GET_RC_DATAS" />
+          <FunctionImportMapping FunctionImportName="GET_RC_TOTAL_CAPACITY" FunctionName="Model.Store.GET_RC_TOTAL_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_SHIPPING_INFOS" FunctionName="Model.Store.GET_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_EQUIP_OEE_INTERVAL" FunctionName="Model.Store.GET_SMT_EQUIP_OEE_INTERVAL" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_LINE_INFOS" FunctionName="Model.Store.GET_SMT_LINE_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_LINE_OEE_UPH" FunctionName="Model.Store.GET_SMT_LINE_OEE_UPH" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_LINE_UPH" FunctionName="Model.Store.GET_SMT_LINE_UPH" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_OEE_INTERVAL_EXCLUDE" FunctionName="Model.Store.GET_SMT_OEE_INTERVAL_EXCLUDE" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_SECTION_EQUIP_OEE" FunctionName="Model.Store.GET_SMT_SECTION_EQUIP_OEE" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_SECTION_LINE_STATUS" FunctionName="Model.Store.GET_SMT_SECTION_LINE_STATUS" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_TOTAL_CAPACITY" FunctionName="Model.Store.GET_SMT_TOTAL_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_TOTAL_PRODUTION_AMOUNT" FunctionName="Model.Store.GET_SMT_TOTAL_PRODUTION_AMOUNT" />
+          <FunctionImportMapping FunctionImportName="GET_SMT_TOTAL_PROD_AMOUNT" FunctionName="Model.Store.GET_SMT_TOTAL_PROD_AMOUNT" />
+          <FunctionImportMapping FunctionImportName="GET_TAURUS_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_TAURUS_NEW_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_TAURUS_PACK_CAPACITY" FunctionName="Model.Store.GET_TAURUS_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="GET_TAURUS_SHIPPING_INFOS" FunctionName="Model.Store.GET_TAURUS_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="GET_TAURUS_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_TAURUS_TOTAL_PACK_CAPACITY" />
+          <FunctionImportMapping FunctionImportName="SET_AS_SHIP_DATA_INTO_DB" FunctionName="Model.Store.SET_AS_SHIP_DATA_INTO_DB" />
+          <FunctionImportMapping FunctionImportName="SET_AUSTIN_SHIPPING_INFOS" FunctionName="Model.Store.SET_AUSTIN_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="SET_B9_SHIPPING_INFOS" FunctionName="Model.Store.SET_B9_SHIPPING_INFOS" />
+          <FunctionImportMapping FunctionImportName="SET_HM_SHIP_INFOS" FunctionName="Model.Store.SET_HM_SHIP_INFOS" />
+          <FunctionImportMapping FunctionImportName="SET_TAURUS_SHIP_INFOS" FunctionName="Model.Store.SET_TAURUS_SHIP_INFOS" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="无" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

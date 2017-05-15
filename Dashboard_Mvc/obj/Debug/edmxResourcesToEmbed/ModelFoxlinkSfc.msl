@@ -1,0 +1,533 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="FoxlinkSfcContext">
+    <EntitySetMapping Name="A_EMPLOYEE_DESC">
+      <EntityTypeMapping TypeName="Model.A_EMPLOYEE_DESC">
+        <MappingFragment StoreEntitySet="A_EMPLOYEE_DESC">
+          <ScalarProperty Name="EMPNO" ColumnName="EMPNO" />
+          <ScalarProperty Name="PWD" ColumnName="PWD" />
+          <ScalarProperty Name="DEPT" ColumnName="DEPT" />
+          <ScalarProperty Name="C_NAME" ColumnName="C_NAME" />
+          <ScalarProperty Name="IN_TIME" ColumnName="IN_TIME" />
+          <ScalarProperty Name="OUT_TIME" ColumnName="OUT_TIME" />
+          <ScalarProperty Name="STATE" ColumnName="STATE" />
+          <ScalarProperty Name="EN_NAME" ColumnName="EN_NAME" />
+          <ScalarProperty Name="EMP_ISADMIN" ColumnName="EMP_ISADMIN" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_PACKING_TABLE">
+      <EntityTypeMapping TypeName="Model.A_PACKING_TABLE">
+        <MappingFragment StoreEntitySet="A_PACKING_TABLE">
+          <ScalarProperty Name="PACKING_HEHAO" ColumnName="PACKING_HEHAO" />
+          <ScalarProperty Name="PACKING_XIANGHAO" ColumnName="PACKING_XIANGHAO" />
+          <ScalarProperty Name="PACKING_ZHANBAN" ColumnName="PACKING_ZHANBAN" />
+          <ScalarProperty Name="ZHUANGHENUM" ColumnName="ZHUANGHENUM" />
+          <ScalarProperty Name="MUBIAONUM" ColumnName="MUBIAONUM" />
+          <ScalarProperty Name="CHANGER_DATE" ColumnName="CHANGER_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BG_MODEL_LINK">
+      <EntityTypeMapping TypeName="Model.BG_MODEL_LINK">
+        <MappingFragment StoreEntitySet="BG_MODEL_LINK">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="BG_CODE" ColumnName="BG_CODE" />
+          <ScalarProperty Name="FACTORY_CODE" ColumnName="FACTORY_CODE" />
+          <ScalarProperty Name="MODEL_NO" ColumnName="MODEL_NO" />
+          <ScalarProperty Name="PART_NO" ColumnName="PART_NO" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="LINK_ENABLE" ColumnName="LINK_ENABLE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_DASHBOARD_REPORT_TYPE">
+      <EntityTypeMapping TypeName="Model.FL_DASHBOARD_REPORT_TYPE">
+        <MappingFragment StoreEntitySet="FL_DASHBOARD_REPORT_TYPE">
+          <ScalarProperty Name="REPORT_ID" ColumnName="REPORT_ID" />
+          <ScalarProperty Name="REPORT_NAME" ColumnName="REPORT_NAME" />
+          <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+          <ScalarProperty Name="REPORT_TYPE" ColumnName="REPORT_TYPE" />
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="REPORT_ENABLE" ColumnName="REPORT_ENABLE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOXLINK_OEE">
+      <EntityTypeMapping TypeName="Model.FOXLINK_OEE">
+        <MappingFragment StoreEntitySet="FOXLINK_OEE">
+          <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+          <ScalarProperty Name="IDLE_MINUTE" ColumnName="IDLE_MINUTE" />
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+          <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="JOB_EXECUTE_LOG">
+      <EntityTypeMapping TypeName="Model.JOB_EXECUTE_LOG">
+        <MappingFragment StoreEntitySet="JOB_EXECUTE_LOG">
+          <ScalarProperty Name="PROCEDURE_NAME" ColumnName="PROCEDURE_NAME" />
+          <ScalarProperty Name="EXECUTE_BEGIN_TIME" ColumnName="EXECUTE_BEGIN_TIME" />
+          <ScalarProperty Name="EXECUTE_STATUS" ColumnName="EXECUTE_STATUS" />
+          <ScalarProperty Name="EXECUTE_STATUS_DETAILS" ColumnName="EXECUTE_STATUS_DETAILS" />
+          <ScalarProperty Name="EXECUTE_END_TIME" ColumnName="EXECUTE_END_TIME" />
+          <ScalarProperty Name="LOG_UUID" ColumnName="LOG_UUID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MODEL_RPT_LINK">
+      <EntityTypeMapping TypeName="Model.MODEL_RPT_LINK">
+        <MappingFragment StoreEntitySet="MODEL_RPT_LINK">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="RPT_GROUP_ID" ColumnName="RPT_GROUP_ID" />
+          <ScalarProperty Name="MODEL_RPT_LINK_ENABLE" ColumnName="MODEL_RPT_LINK_ENABLE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACK_SECTION_TOTAL_CAPACITY">
+      <EntityTypeMapping TypeName="Model.PACK_SECTION_TOTAL_CAPACITY">
+        <MappingFragment StoreEntitySet="PACK_SECTION_TOTAL_CAPACITY">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+          <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+          <ScalarProperty Name="PACKING_QTY" ColumnName="PACKING_QTY" />
+          <ScalarProperty Name="FIRT_PASS_RATE" ColumnName="FIRT_PASS_RATE" />
+          <ScalarProperty Name="IS_TOTAL_CAPACITY" ColumnName="IS_TOTAL_CAPACITY" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PACK_SECTION_TOTAL_PRODUCTION">
+      <EntityTypeMapping TypeName="Model.PACK_SECTION_TOTAL_PRODUCTION">
+        <MappingFragment StoreEntitySet="PACK_SECTION_TOTAL_PRODUCTION">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+          <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+          <ScalarProperty Name="PACKING_QTY" ColumnName="PACKING_QTY" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REPORT_GROUPS">
+      <EntityTypeMapping TypeName="Model.REPORT_GROUPS">
+        <MappingFragment StoreEntitySet="REPORT_GROUPS">
+          <ScalarProperty Name="RPT_GROUP_ID" ColumnName="RPT_GROUP_ID" />
+          <ScalarProperty Name="RPT_GROUP_NAME" ColumnName="RPT_GROUP_NAME" />
+          <ScalarProperty Name="RPT_GROUP_ENABLE" ColumnName="RPT_GROUP_ENABLE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REPORT_ITEMS">
+      <EntityTypeMapping TypeName="Model.REPORT_ITEMS">
+        <MappingFragment StoreEntitySet="REPORT_ITEMS">
+          <ScalarProperty Name="RPT_GROUP_ID" ColumnName="RPT_GROUP_ID" />
+          <ScalarProperty Name="RPT_ITEM_ID" ColumnName="RPT_ITEM_ID" />
+          <ScalarProperty Name="RPT_ITEM_NAME" ColumnName="RPT_ITEM_NAME" />
+          <ScalarProperty Name="RPT_ITEM_ENABLE" ColumnName="RPT_ITEM_ENABLE" />
+          <ScalarProperty Name="WEB_SERVICE_URL" ColumnName="WEB_SERVICE_URL" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SHIPPING_INFOS">
+      <EntityTypeMapping TypeName="Model.SHIPPING_INFOS">
+        <MappingFragment StoreEntitySet="SHIPPING_INFOS">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="WOR_DATE" ColumnName="WOR_DATE" />
+          <ScalarProperty Name="MODEL_QTY" ColumnName="MODEL_QTY" />
+          <ScalarProperty Name="COMP_QTY" ColumnName="COMP_QTY" />
+          <ScalarProperty Name="SHIP_QTY" ColumnName="SHIP_QTY" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMT_AVG_OEE_INFOS">
+      <EntityTypeMapping TypeName="Model.SMT_AVG_OEE_INFOS">
+        <MappingFragment StoreEntitySet="SMT_AVG_OEE_INFOS">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+          <ScalarProperty Name="IS_EXCLUDE" ColumnName="IS_EXCLUDE" />
+          <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMT_IDLE_TIME_INFOS">
+      <EntityTypeMapping TypeName="Model.SMT_IDLE_TIME_INFOS">
+        <MappingFragment StoreEntitySet="SMT_IDLE_TIME_INFOS">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+          <ScalarProperty Name="CURRENT_TIME" ColumnName="CURRENT_TIME" />
+          <ScalarProperty Name="PASS_QTY" ColumnName="PASS_QTY" />
+          <ScalarProperty Name="IDLE_TIME" ColumnName="IDLE_TIME" />
+          <ScalarProperty Name="CURRENT_HOUR" ColumnName="CURRENT_HOUR" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="CREATE_USER" ColumnName="CREATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMT_OEE_BY_PDLINE">
+      <EntityTypeMapping TypeName="Model.SMT_OEE_BY_PDLINE">
+        <MappingFragment StoreEntitySet="SMT_OEE_BY_PDLINE">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+          <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+          <ScalarProperty Name="IS_EXCLUDE" ColumnName="IS_EXCLUDE" />
+          <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SMT_UPH_BY_PDLINE">
+      <EntityTypeMapping TypeName="Model.SMT_UPH_BY_PDLINE">
+        <MappingFragment StoreEntitySet="SMT_UPH_BY_PDLINE">
+          <ScalarProperty Name="LINK_ID" ColumnName="LINK_ID" />
+          <ScalarProperty Name="LINE_ID" ColumnName="LINE_ID" />
+          <ScalarProperty Name="IS_EXCLUDE" ColumnName="IS_EXCLUDE" />
+          <ScalarProperty Name="WORK_DATE" ColumnName="WORK_DATE" />
+          <ScalarProperty Name="UPH" ColumnName="UPH" />
+          <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+          <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="A_PRIVILEGE_DESC">
+      <EntityTypeMapping TypeName="Model.A_PRIVILEGE_DESC">
+        <MappingFragment StoreEntitySet="A_PRIVILEGE_DESC">
+          <ScalarProperty Name="EMPNO" ColumnName="EMPNO" />
+          <ScalarProperty Name="A_S" ColumnName="A_S" />
+          <ScalarProperty Name="H_M" ColumnName="H_M" />
+          <ScalarProperty Name="TAURUS" ColumnName="TAURUS" />
+          <ScalarProperty Name="EXCA" ColumnName="EXCA" />
+          <ScalarProperty Name="B9" ColumnName="B9" />
+          <ScalarProperty Name="UPDATE_USER" ColumnName="UPDATE_USER" />
+          <ScalarProperty Name="AUSTIN" ColumnName="AUSTIN" />
+          <ScalarProperty Name="CRETE" ColumnName="CRETE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_PDLINE_PASS_QTY_HISTORY">
+      <EntityTypeMapping TypeName="Model.FL_PDLINE_PASS_QTY_HISTORY">
+        <MappingFragment StoreEntitySet="FL_PDLINE_PASS_QTY_HISTORY">
+          <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+          <ScalarProperty Name="CURRENT_TIME" ColumnName="CURRENT_TIME" />
+          <ScalarProperty Name="PASS_QTY" ColumnName="PASS_QTY" />
+          <ScalarProperty Name="IDLE_TIME" ColumnName="IDLE_TIME" />
+          <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+          <ScalarProperty Name="CURRENT_HOUR" ColumnName="CURRENT_HOUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_PDLINE_PASS_QTY_TEST">
+      <EntityTypeMapping TypeName="Model.FL_PDLINE_PASS_QTY_TEST">
+        <MappingFragment StoreEntitySet="FL_PDLINE_PASS_QTY_TEST">
+          <ScalarProperty Name="CURRENT_TIME" ColumnName="CURRENT_TIME" />
+          <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+          <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+          <ScalarProperty Name="PASS_QTY" ColumnName="PASS_QTY" />
+          <ScalarProperty Name="IDLE_TIME" ColumnName="IDLE_TIME" />
+          <ScalarProperty Name="CURRENT_HOUR" ColumnName="CURRENT_HOUR" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FL_SHIPPING_INFOS">
+      <EntityTypeMapping TypeName="Model.FL_SHIPPING_INFOS">
+        <MappingFragment StoreEntitySet="FL_SHIPPING_INFOS">
+          <ScalarProperty Name="DATE_ID" ColumnName="DATE_ID" />
+          <ScalarProperty Name="MODEL_NO" ColumnName="MODEL_NO" />
+          <ScalarProperty Name="ERP_DATE" ColumnName="ERP_DATE" />
+          <ScalarProperty Name="SFC_COMP_QTY" ColumnName="SFC_COMP_QTY" />
+          <ScalarProperty Name="ERP_COMP_QTY" ColumnName="ERP_COMP_QTY" />
+          <ScalarProperty Name="ERP_SHIP_QTY" ColumnName="ERP_SHIP_QTY" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOXLINK_OEE_20160819_BAK">
+      <EntityTypeMapping TypeName="Model.FOXLINK_OEE_20160819_BAK">
+        <MappingFragment StoreEntitySet="FOXLINK_OEE_20160819_BAK">
+          <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+          <ScalarProperty Name="IDLE_MINUTE" ColumnName="IDLE_MINUTE" />
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+          <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FOXLINK_OEE_BACKUP">
+      <EntityTypeMapping TypeName="Model.FOXLINK_OEE_BACKUP">
+        <MappingFragment StoreEntitySet="FOXLINK_OEE_BACKUP">
+          <ScalarProperty Name="PDLINE_ID" ColumnName="PDLINE_ID" />
+          <ScalarProperty Name="IDLE_MINUTE" ColumnName="IDLE_MINUTE" />
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+          <ScalarProperty Name="OEE_VALUE" ColumnName="OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RC_RESOURCES_ALL">
+      <EntityTypeMapping TypeName="Model.RC_RESOURCES_ALL">
+        <MappingFragment StoreEntitySet="RC_RESOURCES_ALL">
+          <ScalarProperty Name="RC_RESOURCE_ID" ColumnName="RC_RESOURCE_ID" />
+          <ScalarProperty Name="RESOURCE_NAME" ColumnName="RESOURCE_NAME" />
+          <ScalarProperty Name="RESOURCE_CATEGORY" ColumnName="RESOURCE_CATEGORY" />
+          <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+          <ScalarProperty Name="UOM_CODE" ColumnName="UOM_CODE" />
+          <ScalarProperty Name="BRAND" ColumnName="BRAND" />
+          <ScalarProperty Name="MODEL" ColumnName="MODEL" />
+          <ScalarProperty Name="BOM_DEPARTMENT_ID" ColumnName="BOM_DEPARTMENT_ID" />
+          <ScalarProperty Name="BOM_RESOURCE_ID" ColumnName="BOM_RESOURCE_ID" />
+          <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+          <ScalarProperty Name="EFFECTIVE_START_DATE" ColumnName="EFFECTIVE_START_DATE" />
+          <ScalarProperty Name="EFFECTIVE_END_DATE" ColumnName="EFFECTIVE_END_DATE" />
+          <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATED_BY" ColumnName="LAST_UPDATED_BY" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_LOGIN" ColumnName="LAST_UPDATE_LOGIN" />
+          <ScalarProperty Name="ATTRIBUTE_CATEGORY" ColumnName="ATTRIBUTE_CATEGORY" />
+          <ScalarProperty Name="ATTRIBUTE1" ColumnName="ATTRIBUTE1" />
+          <ScalarProperty Name="ATTRIBUTE2" ColumnName="ATTRIBUTE2" />
+          <ScalarProperty Name="ATTRIBUTE3" ColumnName="ATTRIBUTE3" />
+          <ScalarProperty Name="ATTRIBUTE4" ColumnName="ATTRIBUTE4" />
+          <ScalarProperty Name="ATTRIBUTE5" ColumnName="ATTRIBUTE5" />
+          <ScalarProperty Name="ATTRIBUTE6" ColumnName="ATTRIBUTE6" />
+          <ScalarProperty Name="ATTRIBUTE7" ColumnName="ATTRIBUTE7" />
+          <ScalarProperty Name="ATTRIBUTE8" ColumnName="ATTRIBUTE8" />
+          <ScalarProperty Name="ATTRIBUTE9" ColumnName="ATTRIBUTE9" />
+          <ScalarProperty Name="ATTRIBUTE10" ColumnName="ATTRIBUTE10" />
+          <ScalarProperty Name="ATTRIBUTE11" ColumnName="ATTRIBUTE11" />
+          <ScalarProperty Name="ATTRIBUTE12" ColumnName="ATTRIBUTE12" />
+          <ScalarProperty Name="ATTRIBUTE13" ColumnName="ATTRIBUTE13" />
+          <ScalarProperty Name="ATTRIBUTE14" ColumnName="ATTRIBUTE14" />
+          <ScalarProperty Name="ATTRIBUTE15" ColumnName="ATTRIBUTE15" />
+          <ScalarProperty Name="PROD_LINE_CODE" ColumnName="PROD_LINE_CODE" />
+          <ScalarProperty Name="ASSET_ID" ColumnName="ASSET_ID" />
+          <ScalarProperty Name="SPC_DESCRIPTION" ColumnName="SPC_DESCRIPTION" />
+          <ScalarProperty Name="SOURCE_TYPE" ColumnName="SOURCE_TYPE" />
+          <ScalarProperty Name="ASSIGN_TO_USER_ID" ColumnName="ASSIGN_TO_USER_ID" />
+          <ScalarProperty Name="INVENTORY_ITEM_ID" ColumnName="INVENTORY_ITEM_ID" />
+          <ScalarProperty Name="ORIGINAL_QTY" ColumnName="ORIGINAL_QTY" />
+          <ScalarProperty Name="ONHAND_QTY" ColumnName="ONHAND_QTY" />
+          <ScalarProperty Name="RESOURCE_COST" ColumnName="RESOURCE_COST" />
+          <ScalarProperty Name="DATE_IN_SERVICE" ColumnName="DATE_IN_SERVICE" />
+          <ScalarProperty Name="MATERIAL_TYPE" ColumnName="MATERIAL_TYPE" />
+          <ScalarProperty Name="CAVE_NO" ColumnName="CAVE_NO" />
+          <ScalarProperty Name="NOTE1" ColumnName="NOTE1" />
+          <ScalarProperty Name="NOTE2" ColumnName="NOTE2" />
+          <ScalarProperty Name="NOTE3" ColumnName="NOTE3" />
+          <ScalarProperty Name="NOTE4" ColumnName="NOTE4" />
+          <ScalarProperty Name="NOTE5" ColumnName="NOTE5" />
+          <ScalarProperty Name="ORI_LOCATION_ID" ColumnName="ORI_LOCATION_ID" />
+          <ScalarProperty Name="LOT_CONTROL" ColumnName="LOT_CONTROL" />
+          <ScalarProperty Name="EMP_CLASS_CODE" ColumnName="EMP_CLASS_CODE" />
+          <ScalarProperty Name="QA_PLAN_ID" ColumnName="QA_PLAN_ID" />
+          <ScalarProperty Name="MAINTAIN_JUDGE_TYPE" ColumnName="MAINTAIN_JUDGE_TYPE" />
+          <ScalarProperty Name="MAINTAIN_INTERVAL" ColumnName="MAINTAIN_INTERVAL" />
+          <ScalarProperty Name="LIFESPAN" ColumnName="LIFESPAN" />
+          <ScalarProperty Name="EXTEND_LIFESPAN" ColumnName="EXTEND_LIFESPAN" />
+          <ScalarProperty Name="CURRENCY_CODE" ColumnName="CURRENCY_CODE" />
+          <ScalarProperty Name="PROD_COUNTRY" ColumnName="PROD_COUNTRY" />
+          <ScalarProperty Name="PROD_FAMILY" ColumnName="PROD_FAMILY" />
+          <ScalarProperty Name="SAFETY_STOCK" ColumnName="SAFETY_STOCK" />
+          <ScalarProperty Name="COST_TYPE" ColumnName="COST_TYPE" />
+          <ScalarProperty Name="MAINTAIN_PLAN_ID" ColumnName="MAINTAIN_PLAN_ID" />
+          <ScalarProperty Name="NOTE6" ColumnName="NOTE6" />
+          <ScalarProperty Name="NOTE7" ColumnName="NOTE7" />
+          <ScalarProperty Name="NOTE8" ColumnName="NOTE8" />
+          <ScalarProperty Name="NOTE9" ColumnName="NOTE9" />
+          <ScalarProperty Name="NOTE10" ColumnName="NOTE10" />
+          <ScalarProperty Name="NOTE11" ColumnName="NOTE11" />
+          <ScalarProperty Name="NOTE12" ColumnName="NOTE12" />
+          <ScalarProperty Name="NOTE13" ColumnName="NOTE13" />
+          <ScalarProperty Name="NOTE14" ColumnName="NOTE14" />
+          <ScalarProperty Name="NOTE15" ColumnName="NOTE15" />
+          <ScalarProperty Name="NOTE16" ColumnName="NOTE16" />
+          <ScalarProperty Name="NOTE17" ColumnName="NOTE17" />
+          <ScalarProperty Name="NOTE18" ColumnName="NOTE18" />
+          <ScalarProperty Name="NOTE19" ColumnName="NOTE19" />
+          <ScalarProperty Name="NOTE20" ColumnName="NOTE20" />
+          <ScalarProperty Name="APPLY_MANDATORY_FLAG" ColumnName="APPLY_MANDATORY_FLAG" />
+          <ScalarProperty Name="MOLD_NUMBER" ColumnName="MOLD_NUMBER" />
+          <ScalarProperty Name="HARDNESS" ColumnName="HARDNESS" />
+          <ScalarProperty Name="EXTENSION" ColumnName="EXTENSION" />
+          <ScalarProperty Name="ENG_USER_ID" ColumnName="ENG_USER_ID" />
+          <ScalarProperty Name="DESIGNER_USER_ID" ColumnName="DESIGNER_USER_ID" />
+          <ScalarProperty Name="ASSEMBLY_ITEM_ID" ColumnName="ASSEMBLY_ITEM_ID" />
+          <ScalarProperty Name="CUSTOMER_NAME" ColumnName="CUSTOMER_NAME" />
+          <ScalarProperty Name="CHARGE_SOURCE" ColumnName="CHARGE_SOURCE" />
+          <ScalarProperty Name="STANDARD_MFG_RATE" ColumnName="STANDARD_MFG_RATE" />
+          <ScalarProperty Name="CATEGORY1" ColumnName="CATEGORY1" />
+          <ScalarProperty Name="CATEGORY2" ColumnName="CATEGORY2" />
+          <ScalarProperty Name="CATEGORY3" ColumnName="CATEGORY3" />
+          <ScalarProperty Name="CATEGORY4" ColumnName="CATEGORY4" />
+          <ScalarProperty Name="CATEGORY5" ColumnName="CATEGORY5" />
+          <ScalarProperty Name="HOLD_FLAG" ColumnName="HOLD_FLAG" />
+          <ScalarProperty Name="HOLD_REASON" ColumnName="HOLD_REASON" />
+          <ScalarProperty Name="PRIMARY_MTL_ITEM_ID" ColumnName="PRIMARY_MTL_ITEM_ID" />
+          <ScalarProperty Name="MOLD_QTY_PER_ASSEMBLY" ColumnName="MOLD_QTY_PER_ASSEMBLY" />
+          <ScalarProperty Name="MOLD_REAL_QTY_PER_ASSEMBLY" ColumnName="MOLD_REAL_QTY_PER_ASSEMBLY" />
+          <ScalarProperty Name="MOLD_GOOD_CAVE" ColumnName="MOLD_GOOD_CAVE" />
+          <ScalarProperty Name="QUOTATION_CONTROL" ColumnName="QUOTATION_CONTROL" />
+          <ScalarProperty Name="EQUIP_CATEGORY" ColumnName="EQUIP_CATEGORY" />
+          <ScalarProperty Name="EQUIP_ONLINE_FLAG" ColumnName="EQUIP_ONLINE_FLAG" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RC_WORKING_HOURS">
+      <EntityTypeMapping TypeName="Model.RC_WORKING_HOURS">
+        <MappingFragment StoreEntitySet="RC_WORKING_HOURS">
+          <ScalarProperty Name="WH_HEADER_ID" ColumnName="WH_HEADER_ID" />
+          <ScalarProperty Name="ORG_CODE" ColumnName="ORG_CODE" />
+          <ScalarProperty Name="PROD_DATE" ColumnName="PROD_DATE" />
+          <ScalarProperty Name="RC_NO" ColumnName="RC_NO" />
+          <ScalarProperty Name="RC_STATUS" ColumnName="RC_STATUS" />
+          <ScalarProperty Name="PROD_QTY" ColumnName="PROD_QTY" />
+          <ScalarProperty Name="DEPARTMENT_CODE" ColumnName="DEPARTMENT_CODE" />
+          <ScalarProperty Name="DEPARTMENT_NAME" ColumnName="DEPARTMENT_NAME" />
+          <ScalarProperty Name="PROD_LINE_CODE" ColumnName="PROD_LINE_CODE" />
+          <ScalarProperty Name="SHIFT_NAME" ColumnName="SHIFT_NAME" />
+          <ScalarProperty Name="OPERATION_NUM" ColumnName="OPERATION_NUM" />
+          <ScalarProperty Name="BOM_RESOURCE_CODE" ColumnName="BOM_RESOURCE_CODE" />
+          <ScalarProperty Name="RESOURCE_TYPE" ColumnName="RESOURCE_TYPE" />
+          <ScalarProperty Name="BOM_RESOURCE_NAME" ColumnName="BOM_RESOURCE_NAME" />
+          <ScalarProperty Name="PROD_TIME" ColumnName="PROD_TIME" />
+          <ScalarProperty Name="SCHEDULE_HOURS" ColumnName="SCHEDULE_HOURS" />
+          <ScalarProperty Name="ATTEND_HOURS" ColumnName="ATTEND_HOURS" />
+          <ScalarProperty Name="LOSS_HOURS" ColumnName="LOSS_HOURS" />
+          <ScalarProperty Name="RC_GOOD_MOVE_QTY" ColumnName="RC_GOOD_MOVE_QTY" />
+          <ScalarProperty Name="RC_NG_MOVE_QTY" ColumnName="RC_NG_MOVE_QTY" />
+          <ScalarProperty Name="WH_DESC" ColumnName="WH_DESC" />
+          <ScalarProperty Name="WIP_ENTITY_NAME" ColumnName="WIP_ENTITY_NAME" />
+          <ScalarProperty Name="JOB_TYPE_MEANING" ColumnName="JOB_TYPE_MEANING" />
+          <ScalarProperty Name="STATUS_TYPE_DISP" ColumnName="STATUS_TYPE_DISP" />
+          <ScalarProperty Name="DATE_RELEASED" ColumnName="DATE_RELEASED" />
+          <ScalarProperty Name="DATE_CLOSED" ColumnName="DATE_CLOSED" />
+          <ScalarProperty Name="PRIMARY_ITEM" ColumnName="PRIMARY_ITEM" />
+          <ScalarProperty Name="PRIMARY_ITEM_DESC" ColumnName="PRIMARY_ITEM_DESC" />
+          <ScalarProperty Name="PRIMARY_UOM_CODE" ColumnName="PRIMARY_UOM_CODE" />
+          <ScalarProperty Name="PRIMARY_ITEM_PROJECT_CODE" ColumnName="PRIMARY_ITEM_PROJECT_CODE" />
+          <ScalarProperty Name="START_QUANTITY" ColumnName="START_QUANTITY" />
+          <ScalarProperty Name="QUANTITY_COMPLETED" ColumnName="QUANTITY_COMPLETED" />
+          <ScalarProperty Name="JOB_GOOD_QTY" ColumnName="JOB_GOOD_QTY" />
+          <ScalarProperty Name="JOB_NG_QTY" ColumnName="JOB_NG_QTY" />
+          <ScalarProperty Name="JOB_UNKNOW_QTY" ColumnName="JOB_UNKNOW_QTY" />
+          <ScalarProperty Name="COMPLETION_SUBINVENTORY" ColumnName="COMPLETION_SUBINVENTORY" />
+          <ScalarProperty Name="RESOURCE_NAME" ColumnName="RESOURCE_NAME" />
+          <ScalarProperty Name="DAILY_REPORT_STATUS" ColumnName="DAILY_REPORT_STATUS" />
+          <ScalarProperty Name="STD_USAGE_RATE" ColumnName="STD_USAGE_RATE" />
+          <ScalarProperty Name="RC_HEADER_ID" ColumnName="RC_HEADER_ID" />
+          <ScalarProperty Name="RC_LINE_ID" ColumnName="RC_LINE_ID" />
+          <ScalarProperty Name="RC_RESOURCE_ID" ColumnName="RC_RESOURCE_ID" />
+          <ScalarProperty Name="WIP_ENTITY_ID" ColumnName="WIP_ENTITY_ID" />
+          <ScalarProperty Name="RESOURCE_ID" ColumnName="RESOURCE_ID" />
+          <ScalarProperty Name="CREATION_DATE" ColumnName="CREATION_DATE" />
+          <ScalarProperty Name="LAST_UPDATE_DATE" ColumnName="LAST_UPDATE_DATE" />
+          <ScalarProperty Name="ORGANIZATION_ID" ColumnName="ORGANIZATION_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AS_SMT_PAST10D_OEE_VALUE">
+      <EntityTypeMapping TypeName="Model.AS_SMT_PAST10D_OEE_VALUE">
+        <MappingFragment StoreEntitySet="AS_SMT_PAST10D_OEE_VALUE">
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="B9_SMT_PAST10D_OEE_VALUE">
+      <EntityTypeMapping TypeName="Model.B9_SMT_PAST10D_OEE_VALUE">
+        <MappingFragment StoreEntitySet="B9_SMT_PAST10D_OEE_VALUE">
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXC_SMT_PAST10D_OEE_VALUE">
+      <EntityTypeMapping TypeName="Model.EXC_SMT_PAST10D_OEE_VALUE">
+        <MappingFragment StoreEntitySet="EXC_SMT_PAST10D_OEE_VALUE">
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HM_SMT_PAST10D_OEE_VALUE">
+      <EntityTypeMapping TypeName="Model.HM_SMT_PAST10D_OEE_VALUE">
+        <MappingFragment StoreEntitySet="HM_SMT_PAST10D_OEE_VALUE">
+          <ScalarProperty Name="DTTM" ColumnName="DTTM" />
+          <ScalarProperty Name="AVG_OEE_VALUE" ColumnName="AVG_OEE_VALUE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="CAL_EXCALIBUR_SMT_OEE1" FunctionName="Model.Store.CAL_EXCALIBUR_SMT_OEE" />
+    <FunctionImportMapping FunctionImportName="GET_AS_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_AS_NEW_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_AS_NEW_TOTAL_CAPACITY" FunctionName="Model.Store.GET_AS_NEW_TOTAL_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_AS_SHIPPING_INFOS" FunctionName="Model.Store.GET_AS_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_AS_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_AS_TOTAL_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_AUSTIN_SHIPPING_INFOS" FunctionName="Model.Store.GET_AUSTIN_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_B9_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_B9_NEW_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_B9_SHIPPING_INFOS" FunctionName="Model.Store.GET_B9_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_B9_SMT_PASS_QTY" FunctionName="Model.Store.GET_B9_SMT_PASS_QTY" />
+    <FunctionImportMapping FunctionImportName="GET_B9_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_B9_TOTAL_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_CASTOR_CAPACITY" FunctionName="Model.Store.GET_CASTOR_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_CRETE_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_CRETE_TOTAL_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_EXCALIBUR_SHIPPING_INFOS" FunctionName="Model.Store.GET_EXCALIBUR_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_EXCA_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_EXCA_TOTAL_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_EXC_SMT_PASS_QTY" FunctionName="Model.Store.GET_EXC_SMT_PASS_QTY" />
+    <FunctionImportMapping FunctionImportName="GET_HM_NEW_PACK_CAPACITY" FunctionName="Model.Store.GET_HM_NEW_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_HM_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_HM_NEW_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_HM_NEW_SMT_CAPACITY" FunctionName="Model.Store.GET_HM_NEW_SMT_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_HM_SHIPPING_INFOS" FunctionName="Model.Store.GET_HM_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_HM_TOTAL_CAPACITY" FunctionName="Model.Store.GET_HM_TOTAL_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_OVERVIEW_SMT_OEE_EXCLUDE" FunctionName="Model.Store.GET_OVERVIEW_SMT_OEE_EXCLUDE" />
+    <FunctionImportMapping FunctionImportName="GET_OVERVIEW_SMT_SECTION_OEE" FunctionName="Model.Store.GET_OVERVIEW_SMT_SECTION_OEE" />
+    <FunctionImportMapping FunctionImportName="GET_PACK_SECTION_LINE_INFOS" FunctionName="Model.Store.GET_PACK_SECTION_LINE_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_PACK_TOTAL_PRODUCTION" FunctionName="Model.Store.GET_PACK_TOTAL_PRODUCTION" />
+    <FunctionImportMapping FunctionImportName="GET_POLLUX_CAPACITY" FunctionName="Model.Store.GET_POLLUX_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_RC_DATAS" FunctionName="Model.Store.GET_RC_DATAS" />
+    <FunctionImportMapping FunctionImportName="GET_RC_TOTAL_CAPACITY" FunctionName="Model.Store.GET_RC_TOTAL_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_SHIPPING_INFOS" FunctionName="Model.Store.GET_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_EQUIP_OEE_INTERVAL" FunctionName="Model.Store.GET_SMT_EQUIP_OEE_INTERVAL" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_LINE_INFOS" FunctionName="Model.Store.GET_SMT_LINE_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_LINE_OEE_UPH" FunctionName="Model.Store.GET_SMT_LINE_OEE_UPH" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_LINE_UPH" FunctionName="Model.Store.GET_SMT_LINE_UPH" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_OEE_INTERVAL_EXCLUDE" FunctionName="Model.Store.GET_SMT_OEE_INTERVAL_EXCLUDE" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_SECTION_EQUIP_OEE" FunctionName="Model.Store.GET_SMT_SECTION_EQUIP_OEE" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_SECTION_LINE_STATUS" FunctionName="Model.Store.GET_SMT_SECTION_LINE_STATUS" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_TOTAL_CAPACITY" FunctionName="Model.Store.GET_SMT_TOTAL_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_TOTAL_PRODUTION_AMOUNT" FunctionName="Model.Store.GET_SMT_TOTAL_PRODUTION_AMOUNT" />
+    <FunctionImportMapping FunctionImportName="GET_SMT_TOTAL_PROD_AMOUNT" FunctionName="Model.Store.GET_SMT_TOTAL_PROD_AMOUNT" />
+    <FunctionImportMapping FunctionImportName="GET_TAURUS_NEW_SHIPPING_INFOS" FunctionName="Model.Store.GET_TAURUS_NEW_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_TAURUS_PACK_CAPACITY" FunctionName="Model.Store.GET_TAURUS_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="GET_TAURUS_SHIPPING_INFOS" FunctionName="Model.Store.GET_TAURUS_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="GET_TAURUS_TOTAL_PACK_CAPACITY" FunctionName="Model.Store.GET_TAURUS_TOTAL_PACK_CAPACITY" />
+    <FunctionImportMapping FunctionImportName="SET_AS_SHIP_DATA_INTO_DB" FunctionName="Model.Store.SET_AS_SHIP_DATA_INTO_DB" />
+    <FunctionImportMapping FunctionImportName="SET_AUSTIN_SHIPPING_INFOS" FunctionName="Model.Store.SET_AUSTIN_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="SET_B9_SHIPPING_INFOS" FunctionName="Model.Store.SET_B9_SHIPPING_INFOS" />
+    <FunctionImportMapping FunctionImportName="SET_HM_SHIP_INFOS" FunctionName="Model.Store.SET_HM_SHIP_INFOS" />
+    <FunctionImportMapping FunctionImportName="SET_TAURUS_SHIP_INFOS" FunctionName="Model.Store.SET_TAURUS_SHIP_INFOS" />
+  </EntityContainerMapping>
+</Mapping>

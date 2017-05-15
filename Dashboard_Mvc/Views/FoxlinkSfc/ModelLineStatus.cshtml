@@ -1,0 +1,52 @@
+﻿
+
+@{
+    ViewBag.Title = "ModelLineStatus";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <br />
+            <div id="ModelStatusTitle"> </div>
+            <div id="lineStatusDiv">
+                <div id="modelOEECharts"></div>
+                <div id="oeeFormula">
+                    <h4>
+                        <b>
+                            稼動率公式: (機台稼動時間/機台負荷時間) * 100%
+                            <br /><br />機台稼動時間 : 24HR – 停機時間
+                            <br /><br />機台負荷時間: 24HR
+                            <br /><br />停機時間：在SMT投入站 及 檢測站，以目前時間點為標準往前推10分鐘，若在此時間區間內無過站資料，則表示此機台閒置 （停機時間+1 Minutes）
+                        </b>
+                    </h4><br />
+                </div>
+                <table id="lineStatusTable" class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>總共線體數</th>
+                            <th>在生產線體數</th>
+                            <th>OEE_VALUE小於0.6線體數</th>
+                            <th>OEE_VALUE大於等於0.6且小於0.85線體數</th>
+                            <th>OEE_VALUE大於等於0.85線體數</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <div id="lineStatusArea" style="display:inline"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/highCharts")
+@Scripts.Render("~/bundles/CommonScript")
+@Scripts.Render("~/bundles/ReportDataMethod")
+@Scripts.Render("~/bundles/ModelLineStatus")
+

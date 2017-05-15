@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "ModelReport";
+}
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+            @Html.Partial("_SideBar")
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <br />
+            <div id="modelReportTitle"></div>
+            <div id="AllReport">
+                <div id="productReport" style="float: left; width: 50%">
+                    <div id="divProductArea">
+                    </div>
+                </div>
+                <div id="rateReport" style="float: right; width: 50%">
+                    <div id="divRateArea">
+                    </div>
+                </div>
+                <div id="divTableArea">
+                    <table id="tableArea" class="table table-bordered table-striped table-hover">
+                        <thead>
+                        </thead>
+                        <tbody></tbody>
+                        <tfoot>
+                        </tfoot>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/bundles/highCharts")
+@Scripts.Render("~/bundles/CommonScript")
+@Scripts.Render("~/bundles/ReportDataMethod")
+@Scripts.Render("~/bundles/ModelReport")

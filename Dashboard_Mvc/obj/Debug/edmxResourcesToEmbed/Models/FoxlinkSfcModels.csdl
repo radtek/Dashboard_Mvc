@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="A_EMPLOYEE_DESC">
+    <Key>
+      <PropertyRef Name="EMPNO" />
+    </Key>
+    <Property Name="EMPNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PWD" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DEPT" Type="Int32" />
+    <Property Name="C_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="IN_TIME" Type="DateTime" />
+    <Property Name="OUT_TIME" Type="DateTime" />
+    <Property Name="STATE" Type="Boolean" />
+    <Property Name="EN_NAME" Type="String" MaxLength="23" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_ISADMIN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="A_PACKING_TABLE">
+    <Key>
+      <PropertyRef Name="PACKING_HEHAO" />
+    </Key>
+    <Property Name="PACKING_HEHAO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PACKING_XIANGHAO" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PACKING_ZHANBAN" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="ZHUANGHENUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="MUBIAONUM" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+    <Property Name="CHANGER_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="BG_MODEL_LINK">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BG_CODE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FACTORY_CODE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODEL_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PART_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="LINK_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FL_DASHBOARD_REPORT_TYPE">
+    <Key>
+      <PropertyRef Name="REPORT_ID" />
+    </Key>
+    <Property Name="REPORT_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REPORT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODEL_NAME" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="REPORT_TYPE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DTTM" Type="DateTime" />
+    <Property Name="REPORT_ENABLE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FOXLINK_OEE">
+    <Key>
+      <PropertyRef Name="PDLINE_ID" />
+      <PropertyRef Name="DTTM" />
+      <PropertyRef Name="MODEL_NAME" />
+    </Key>
+    <Property Name="PDLINE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDLE_MINUTE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DTTM" Type="DateTime" Nullable="false" />
+    <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OEE_VALUE" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="JOB_EXECUTE_LOG">
+    <Key>
+      <PropertyRef Name="LOG_UUID" />
+    </Key>
+    <Property Name="PROCEDURE_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="EXECUTE_BEGIN_TIME" Type="DateTime" />
+    <Property Name="EXECUTE_STATUS" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="EXECUTE_STATUS_DETAILS" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="EXECUTE_END_TIME" Type="DateTime" />
+    <Property Name="LOG_UUID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MODEL_RPT_LINK">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="RPT_GROUP_ID" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPT_GROUP_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODEL_RPT_LINK_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PACK_SECTION_TOTAL_CAPACITY">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="LINE_ID" />
+      <PropertyRef Name="WORK_DATE" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="PACKING_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="FIRT_PASS_RATE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IS_TOTAL_CAPACITY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="PACK_SECTION_TOTAL_PRODUCTION">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="LINE_ID" />
+      <PropertyRef Name="WORK_DATE" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="PACKING_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="REPORT_GROUPS">
+    <Key>
+      <PropertyRef Name="RPT_GROUP_ID" />
+    </Key>
+    <Property Name="RPT_GROUP_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPT_GROUP_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPT_GROUP_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="REPORT_ITEMS">
+    <Key>
+      <PropertyRef Name="RPT_GROUP_ID" />
+      <PropertyRef Name="RPT_ITEM_ID" />
+    </Key>
+    <Property Name="RPT_GROUP_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPT_ITEM_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPT_ITEM_NAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RPT_ITEM_ENABLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="WEB_SERVICE_URL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SHIPPING_INFOS">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="WOR_DATE" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WOR_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="MODEL_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="COMP_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="SHIP_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SMT_AVG_OEE_INFOS">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="WORK_DATE" />
+      <PropertyRef Name="IS_EXCLUDE" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="IS_EXCLUDE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="OEE_VALUE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="SMT_IDLE_TIME_INFOS">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="LINE_ID" />
+      <PropertyRef Name="CURRENT_TIME" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CURRENT_TIME" Type="DateTime" Nullable="false" />
+    <Property Name="PASS_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="IDLE_TIME" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CURRENT_HOUR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="CREATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SMT_OEE_BY_PDLINE">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="LINE_ID" />
+      <PropertyRef Name="WORK_DATE" />
+      <PropertyRef Name="IS_EXCLUDE" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="IS_EXCLUDE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="OEE_VALUE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+  </EntityType>
+  <EntityType Name="SMT_UPH_BY_PDLINE">
+    <Key>
+      <PropertyRef Name="LINK_ID" />
+      <PropertyRef Name="LINE_ID" />
+      <PropertyRef Name="IS_EXCLUDE" />
+      <PropertyRef Name="WORK_DATE" />
+    </Key>
+    <Property Name="LINK_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LINE_ID" Type="String" MaxLength="53" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IS_EXCLUDE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="WORK_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="UPH" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_DATE" Type="DateTime" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="A_PRIVILEGE_DESC">
+    <Key>
+      <PropertyRef Name="EMPNO" />
+    </Key>
+    <Property Name="EMPNO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="A_S" Type="Boolean" />
+    <Property Name="H_M" Type="Boolean" />
+    <Property Name="TAURUS" Type="Boolean" />
+    <Property Name="EXCA" Type="Boolean" />
+    <Property Name="B9" Type="Boolean" />
+    <Property Name="UPDATE_USER" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="AUSTIN" Type="Boolean" />
+    <Property Name="CRETE" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="FL_PDLINE_PASS_QTY_HISTORY">
+    <Key>
+      <PropertyRef Name="PDLINE_ID" />
+      <PropertyRef Name="CURRENT_TIME" />
+      <PropertyRef Name="PASS_QTY" />
+      <PropertyRef Name="IDLE_TIME" />
+    </Key>
+    <Property Name="PDLINE_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CURRENT_TIME" Type="DateTime" Nullable="false" />
+    <Property Name="PASS_QTY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IDLE_TIME" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CURRENT_HOUR" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="FL_PDLINE_PASS_QTY_TEST">
+    <Key>
+      <PropertyRef Name="MODEL_NAME" />
+      <PropertyRef Name="PDLINE_ID" />
+      <PropertyRef Name="PASS_QTY" />
+      <PropertyRef Name="IDLE_TIME" />
+      <PropertyRef Name="CURRENT_HOUR" />
+    </Key>
+    <Property Name="CURRENT_TIME" Type="DateTime" />
+    <Property Name="MODEL_NAME" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PDLINE_ID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PASS_QTY" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="IDLE_TIME" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+    <Property Name="CURRENT_HOUR" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="FL_SHIPPING_INFOS">
+    <Key>
+      <PropertyRef Name="DATE_ID" />
+      <PropertyRef Name="MODEL_NO" />
+    </Key>
+    <Property Name="DATE_ID" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MODEL_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ERP_DATE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="SFC_COMP_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ERP_COMP_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ERP_SHIP_QTY" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="FOXLINK_OEE_20160819_BAK">
+    <Key>
+      <PropertyRef Name="PDLINE_ID" />
+      <PropertyRef Name="MODEL_NAME" />
+    </Key>
+    <Property Name="PDLINE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDLE_MINUTE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DTTM" Type="DateTime" />
+    <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OEE_VALUE" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="FOXLINK_OEE_BACKUP">
+    <Key>
+      <PropertyRef Name="PDLINE_ID" />
+      <PropertyRef Name="MODEL_NAME" />
+    </Key>
+    <Property Name="PDLINE_ID" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="IDLE_MINUTE" Type="Decimal" Precision="10" Scale="2" />
+    <Property Name="DTTM" Type="DateTime" />
+    <Property Name="MODEL_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="OEE_VALUE" Type="Decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <EntityType Name="RC_RESOURCES_ALL">
+    <Key>
+      <PropertyRef Name="RC_RESOURCE_ID" />
+      <PropertyRef Name="RESOURCE_NAME" />
+      <PropertyRef Name="RESOURCE_CATEGORY" />
+      <PropertyRef Name="UOM_CODE" />
+      <PropertyRef Name="ORGANIZATION_ID" />
+      <PropertyRef Name="CREATED_BY" />
+      <PropertyRef Name="CREATION_DATE" />
+      <PropertyRef Name="LAST_UPDATED_BY" />
+      <PropertyRef Name="LAST_UPDATE_DATE" />
+    </Key>
+    <Property Name="RC_RESOURCE_ID" Type="Int64" Nullable="false" />
+    <Property Name="RESOURCE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RESOURCE_CATEGORY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DESCRIPTION" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="UOM_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BRAND" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="MODEL" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="BOM_DEPARTMENT_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="BOM_RESOURCE_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ORGANIZATION_ID" Type="Int64" Nullable="false" />
+    <Property Name="EFFECTIVE_START_DATE" Type="DateTime" />
+    <Property Name="EFFECTIVE_END_DATE" Type="DateTime" />
+    <Property Name="CREATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="LAST_UPDATED_BY" Type="Int64" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="LAST_UPDATE_LOGIN" Type="Int64" />
+    <Property Name="ATTRIBUTE_CATEGORY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE2" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE3" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE4" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE5" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE6" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE7" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE8" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE9" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE10" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE11" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE12" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE13" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE14" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="ATTRIBUTE15" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="PROD_LINE_CODE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ASSET_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="SPC_DESCRIPTION" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="SOURCE_TYPE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="ASSIGN_TO_USER_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="INVENTORY_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ORIGINAL_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ONHAND_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RESOURCE_COST" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DATE_IN_SERVICE" Type="DateTime" />
+    <Property Name="MATERIAL_TYPE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CAVE_NO" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE1" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE2" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE3" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE4" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE5" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="ORI_LOCATION_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="LOT_CONTROL" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="EMP_CLASS_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="QA_PLAN_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MAINTAIN_JUDGE_TYPE" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="MAINTAIN_INTERVAL" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="LIFESPAN" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="EXTEND_LIFESPAN" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CURRENCY_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="PROD_COUNTRY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="PROD_FAMILY" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SAFETY_STOCK" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="COST_TYPE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MAINTAIN_PLAN_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="NOTE6" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE7" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE8" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE9" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE10" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE11" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE12" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE13" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE14" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE15" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE16" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE17" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE18" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE19" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="NOTE20" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+    <Property Name="APPLY_MANDATORY_FLAG" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="MOLD_NUMBER" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="HARDNESS" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="EXTENSION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="ENG_USER_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="DESIGNER_USER_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ASSEMBLY_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="CUSTOMER_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="CHARGE_SOURCE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="STANDARD_MFG_RATE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY1" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY2" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY3" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY4" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="CATEGORY5" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="HOLD_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="HOLD_REASON" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="PRIMARY_MTL_ITEM_ID" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MOLD_QTY_PER_ASSEMBLY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MOLD_REAL_QTY_PER_ASSEMBLY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="MOLD_GOOD_CAVE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="QUOTATION_CONTROL" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+    <Property Name="EQUIP_CATEGORY" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+    <Property Name="EQUIP_ONLINE_FLAG" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="RC_WORKING_HOURS">
+    <Key>
+      <PropertyRef Name="WH_HEADER_ID" />
+      <PropertyRef Name="RC_NO" />
+      <PropertyRef Name="PROD_QTY" />
+      <PropertyRef Name="DEPARTMENT_NAME" />
+      <PropertyRef Name="OPERATION_NUM" />
+      <PropertyRef Name="BOM_RESOURCE_CODE" />
+      <PropertyRef Name="WIP_ENTITY_NAME" />
+      <PropertyRef Name="JOB_TYPE_MEANING" />
+      <PropertyRef Name="STATUS_TYPE_DISP" />
+      <PropertyRef Name="START_QUANTITY" />
+      <PropertyRef Name="QUANTITY_COMPLETED" />
+      <PropertyRef Name="RC_HEADER_ID" />
+      <PropertyRef Name="RC_LINE_ID" />
+      <PropertyRef Name="WIP_ENTITY_ID" />
+      <PropertyRef Name="RESOURCE_ID" />
+      <PropertyRef Name="CREATION_DATE" />
+      <PropertyRef Name="LAST_UPDATE_DATE" />
+      <PropertyRef Name="ORGANIZATION_ID" />
+    </Key>
+    <Property Name="WH_HEADER_ID" Type="Int64" Nullable="false" />
+    <Property Name="ORG_CODE" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+    <Property Name="PROD_DATE" Type="DateTime" />
+    <Property Name="RC_NO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RC_STATUS" Type="String" MaxLength="18" FixedLength="false" Unicode="false" />
+    <Property Name="PROD_QTY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="DEPARTMENT_CODE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="DEPARTMENT_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PROD_LINE_CODE" Type="String" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="SHIFT_NAME" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="OPERATION_NUM" Type="Int64" Nullable="false" />
+    <Property Name="BOM_RESOURCE_CODE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="RESOURCE_TYPE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="BOM_RESOURCE_NAME" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="PROD_TIME" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="SCHEDULE_HOURS" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="ATTEND_HOURS" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="LOSS_HOURS" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RC_GOOD_MOVE_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RC_NG_MOVE_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="WH_DESC" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="WIP_ENTITY_NAME" Type="String" MaxLength="480" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="JOB_TYPE_MEANING" Type="String" MaxLength="160" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="STATUS_TYPE_DISP" Type="String" MaxLength="160" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="DATE_RELEASED" Type="DateTime" />
+    <Property Name="DATE_CLOSED" Type="DateTime" />
+    <Property Name="PRIMARY_ITEM" Type="String" MaxLength="244" FixedLength="false" Unicode="false" />
+    <Property Name="PRIMARY_ITEM_DESC" Type="String" MaxLength="480" FixedLength="false" Unicode="false" />
+    <Property Name="PRIMARY_UOM_CODE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+    <Property Name="PRIMARY_ITEM_PROJECT_CODE" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="START_QUANTITY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="QUANTITY_COMPLETED" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="JOB_GOOD_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="JOB_NG_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="JOB_UNKNOW_QTY" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="COMPLETION_SUBINVENTORY" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="RESOURCE_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="DAILY_REPORT_STATUS" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+    <Property Name="STD_USAGE_RATE" Type="Decimal" Precision="38" Scale="0" />
+    <Property Name="RC_HEADER_ID" Type="Int64" Nullable="false" />
+    <Property Name="RC_LINE_ID" Type="Int64" Nullable="false" />
+    <Property Name="RC_RESOURCE_ID" Type="Int64" />
+    <Property Name="WIP_ENTITY_ID" Type="Int64" Nullable="false" />
+    <Property Name="RESOURCE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="CREATION_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="LAST_UPDATE_DATE" Type="DateTime" Nullable="false" />
+    <Property Name="ORGANIZATION_ID" Type="Int64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AS_SMT_PAST10D_OEE_VALUE">
+    <Key>
+      <PropertyRef Name="DTTM" />
+    </Key>
+    <Property Name="DTTM" Type="DateTime" Nullable="false" />
+    <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="B9_SMT_PAST10D_OEE_VALUE">
+    <Key>
+      <PropertyRef Name="DTTM" />
+    </Key>
+    <Property Name="DTTM" Type="DateTime" Nullable="false" />
+    <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="EXC_SMT_PAST10D_OEE_VALUE">
+    <Key>
+      <PropertyRef Name="DTTM" />
+    </Key>
+    <Property Name="DTTM" Type="DateTime" Nullable="false" />
+    <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityType Name="HM_SMT_PAST10D_OEE_VALUE">
+    <Key>
+      <PropertyRef Name="DTTM" />
+    </Key>
+    <Property Name="DTTM" Type="DateTime" Nullable="false" />
+    <Property Name="AVG_OEE_VALUE" Type="Decimal" Precision="38" Scale="0" />
+  </EntityType>
+  <EntityContainer Name="FoxlinkSfcContext" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="A_EMPLOYEE_DESC" EntityType="Self.A_EMPLOYEE_DESC" />
+    <EntitySet Name="A_PACKING_TABLE" EntityType="Self.A_PACKING_TABLE" />
+    <EntitySet Name="BG_MODEL_LINK" EntityType="Self.BG_MODEL_LINK" />
+    <EntitySet Name="FL_DASHBOARD_REPORT_TYPE" EntityType="Self.FL_DASHBOARD_REPORT_TYPE" />
+    <EntitySet Name="FOXLINK_OEE" EntityType="Self.FOXLINK_OEE" />
+    <EntitySet Name="JOB_EXECUTE_LOG" EntityType="Self.JOB_EXECUTE_LOG" />
+    <EntitySet Name="MODEL_RPT_LINK" EntityType="Self.MODEL_RPT_LINK" />
+    <EntitySet Name="PACK_SECTION_TOTAL_CAPACITY" EntityType="Self.PACK_SECTION_TOTAL_CAPACITY" />
+    <EntitySet Name="PACK_SECTION_TOTAL_PRODUCTION" EntityType="Self.PACK_SECTION_TOTAL_PRODUCTION" />
+    <EntitySet Name="REPORT_GROUPS" EntityType="Self.REPORT_GROUPS" />
+    <EntitySet Name="REPORT_ITEMS" EntityType="Self.REPORT_ITEMS" />
+    <EntitySet Name="SHIPPING_INFOS" EntityType="Self.SHIPPING_INFOS" />
+    <EntitySet Name="SMT_AVG_OEE_INFOS" EntityType="Self.SMT_AVG_OEE_INFOS" />
+    <EntitySet Name="SMT_IDLE_TIME_INFOS" EntityType="Self.SMT_IDLE_TIME_INFOS" />
+    <EntitySet Name="SMT_OEE_BY_PDLINE" EntityType="Self.SMT_OEE_BY_PDLINE" />
+    <EntitySet Name="SMT_UPH_BY_PDLINE" EntityType="Self.SMT_UPH_BY_PDLINE" />
+    <EntitySet Name="A_PRIVILEGE_DESC" EntityType="Self.A_PRIVILEGE_DESC" />
+    <EntitySet Name="FL_PDLINE_PASS_QTY_HISTORY" EntityType="Self.FL_PDLINE_PASS_QTY_HISTORY" />
+    <EntitySet Name="FL_PDLINE_PASS_QTY_TEST" EntityType="Self.FL_PDLINE_PASS_QTY_TEST" />
+    <EntitySet Name="FL_SHIPPING_INFOS" EntityType="Self.FL_SHIPPING_INFOS" />
+    <EntitySet Name="FOXLINK_OEE_20160819_BAK" EntityType="Self.FOXLINK_OEE_20160819_BAK" />
+    <EntitySet Name="FOXLINK_OEE_BACKUP" EntityType="Self.FOXLINK_OEE_BACKUP" />
+    <EntitySet Name="RC_RESOURCES_ALL" EntityType="Self.RC_RESOURCES_ALL" />
+    <EntitySet Name="RC_WORKING_HOURS" EntityType="Self.RC_WORKING_HOURS" />
+    <EntitySet Name="AS_SMT_PAST10D_OEE_VALUE" EntityType="Self.AS_SMT_PAST10D_OEE_VALUE" />
+    <EntitySet Name="B9_SMT_PAST10D_OEE_VALUE" EntityType="Self.B9_SMT_PAST10D_OEE_VALUE" />
+    <EntitySet Name="EXC_SMT_PAST10D_OEE_VALUE" EntityType="Self.EXC_SMT_PAST10D_OEE_VALUE" />
+    <EntitySet Name="HM_SMT_PAST10D_OEE_VALUE" EntityType="Self.HM_SMT_PAST10D_OEE_VALUE" />
+    <FunctionImport Name="GET_AS_NEW_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_AS_NEW_TOTAL_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_AS_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_AS_TOTAL_PACK_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_AUSTIN_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_B9_NEW_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_B9_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_B9_SMT_PASS_QTY" />
+    <FunctionImport Name="GET_B9_TOTAL_PACK_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+      <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GET_CASTOR_CAPACITY">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_CRETE_TOTAL_PACK_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+      <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GET_EXCALIBUR_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_EXCA_TOTAL_PACK_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+      <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GET_EXC_SMT_PASS_QTY" />
+    <FunctionImport Name="GET_HM_NEW_PACK_CAPACITY">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_HM_NEW_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_HM_NEW_SMT_CAPACITY">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_HM_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_HM_TOTAL_CAPACITY">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_OVERVIEW_SMT_OEE_EXCLUDE">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_OVERVIEW_SMT_SECTION_OEE">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_PACK_SECTION_LINE_INFOS">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_PACK_TOTAL_PRODUCTION">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_POLLUX_CAPACITY">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_RC_DATAS" />
+    <FunctionImport Name="GET_RC_TOTAL_CAPACITY">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="ORG_ID" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_EQUIP_OEE_INTERVAL">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="LINE_NAME" Mode="In" Type="String" />
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_LINE_INFOS">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_LINE_OEE_UPH">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="LINE_NAME" Mode="In" Type="String" />
+      <Parameter Name="LINE_ID" Mode="In" Type="String" />
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_LINE_UPH">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="LINE_ID" Mode="In" Type="String" />
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_OEE_INTERVAL_EXCLUDE">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="LINE_NAME" Mode="In" Type="String" />
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_SECTION_EQUIP_OEE">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_SECTION_LINE_STATUS">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_TOTAL_CAPACITY">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+      <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_TOTAL_PRODUTION_AMOUNT">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_SMT_TOTAL_PROD_AMOUNT">
+      <Parameter Name="MODEL_NO" Mode="In" Type="String" />
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GET_TAURUS_NEW_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_TAURUS_PACK_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+      <Parameter Name="IS_TOTAL_CAPACITY" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="GET_TAURUS_SHIPPING_INFOS">
+      <Parameter Name="START_DATE" Mode="In" Type="DateTime" />
+      <Parameter Name="END_DATE" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="GET_TAURUS_TOTAL_PACK_CAPACITY">
+      <Parameter Name="TIME_INTERVAL" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SET_AS_SHIP_DATA_INTO_DB" />
+    <FunctionImport Name="SET_AUSTIN_SHIPPING_INFOS" />
+    <FunctionImport Name="SET_B9_SHIPPING_INFOS" />
+    <FunctionImport Name="SET_HM_SHIP_INFOS" />
+    <FunctionImport Name="SET_TAURUS_SHIP_INFOS" />
+  </EntityContainer>
+</Schema>

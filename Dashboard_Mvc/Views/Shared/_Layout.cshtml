@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<title>@ViewBag.Title - My ASP.NET Application</title>*@
+    <title></title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="~/Images/foxlink.png" alt="img" height="50" />
+                    @*@Html.ActionLink("正崴生產資訊中心", "Index", "Home", null, new { @class = "navbar-brand" })*@
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("首頁", "Index", "Home")</li>
+                        @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                        <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                        <li class="dropdown">
+                            <a id="modelNo" href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                ---機 種---
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @if (Request.IsAuthenticated && User.IsInRole("B9"))
+                                {
+                                    <li>@Html.ActionLink("B9", "ModelReport", "FoxlinkSfc", new { Model = "B9" }, "")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("A/S"))
+                                {
+                                    <li>@Html.ActionLink("A/S", "ModelReport", "FoxlinkSfc", new { Model = "AS" }, "")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("H/M"))
+                                {
+                                    <li>@Html.ActionLink("H/M", "ModelReport", "FoxlinkSfc", new { Model = "HM" }, "")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("Excalibur"))
+                                {
+                                    <li>@Html.ActionLink("Excalibur", "ModelReport", "FoxlinkSfc", new { Model = "Excalibur" }, "")</li>
+                                }
+                                @if (Request.IsAuthenticated && User.IsInRole("Taurus"))
+                                {
+                                    <li>@Html.ActionLink("LKTaurus", "ModelReport", "FoxlinkSfc", new { Model = "TAURUSLK" }, "")</li>
+                                    <li class="divider"></li>
+                                    <li>@Html.ActionLink("KSTaurus", "ModelReport", "FoxlinkSfc", new { Model = "TAURUSKS" }, "")</li>
+                                }
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                --SMT 工段稼动率--
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("SMT工段近一年稼动率", "AllModelYearOEEValue", "FoxlinkSfc")</li>
+                                <li>@Html.ActionLink("SMT 工段前一天稼动率", "SolidGaugeOee", "FoxlinkSfc")</li>
+                            </ul>
+                        </li>
+
+                        <li>@Html.ActionLink("機種出貨量", "Shipment", "FoxlinkSfc")</li>
+
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("角色管理", "Index", "RolesAdmin")</li>
+                            <li>@Html.ActionLink("用戶管理", "Index", "UsersAdmin")</li>
+                        }
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            </div>
+        </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p align="center">&copy; @DateTime.Now.Year - 正崴生產資訊中心</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
