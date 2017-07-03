@@ -88,9 +88,10 @@ D:\Projects\Dashboard_Mvc\Dashboard_Mvc\bin\zh-Hans\Microsoft.Owin.Security.Face
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\bin\zh-Hans\Microsoft.Owin.Security.Google.resources.dll
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\bin\zh-Hans\Microsoft.Owin.Security.Twitter.resources.dll
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\bin\zh-Hans\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.csprojResolveAssemblyReference.cache
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.Migrations.InitialCreate.resources
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.Migrations.Init.resources
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.csproj.GenerateResource.Cache
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.dll
 D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.pdb
-D:\Projects\Dashboard_Mvc\Dashboard_Mvc\obj\Debug\Dashboard_Mvc.csprojResolveAssemblyReference.cache
+D:\Projects\Dashboard_Mvc\Dashboard_Mvc\bin\zh-Hans\Microsoft.AspNet.Identity.EntityFramework.resources.dll
